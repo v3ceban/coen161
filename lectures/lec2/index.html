@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lecture 2</title>
+  <link rel="icon" type="image/png" href="https://placekitten.com/40/40" />
+  <style>
+    p:last-of-type {
+      color: blue;
+      /*This will not apply due to inheritance rules*/
+      font-weight: bold;
+      /*This will apply as it's not overriden*/
+    }
+
+    p:nth-of-type(1) {
+      color: blue;
+    }
+
+    p:nth-of-type(2) {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 6 heading tags -->
+  <h1>This is a heading</h1>
+  <br />
+  <p>This is a paragraph</p>
+  <p style="
+        color: red;
+        font-size: 2em;
+        background: yellow;
+        max-width: fit-content;
+      ">
+    This is a <span style="color: green">red</span> paragraph
+  </p>
+  <!-- alt attribute for text readers and other purposes -->
+  <img src="https://placekitten.com/200/200" alt="a cat picture" />
+  <!-- <img src="file:///C:/path/to/file/file.jpg" alt="a cat picture" /> -->
+  <hr />
+  <a href="./page1.html">page1</a>
+  <a href="/page1.html">page1</a>
+  <a href="page1.html">page1</a>
+  <!-- was there a reason you didn't mention :nth-of-type()? -->
+</body>
+
+</html>

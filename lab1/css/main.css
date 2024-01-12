@@ -58,11 +58,21 @@
   margin-bottom: 30px;
 }
 
+.home main ul a {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.home main ul li {
+  display: inline;
+}
+
 .tag {
   border: 1px black solid;
   background: lightgrey;
   border-radius: 5px;
-  padding: 3px 5px;
+  color: inherit;
+  padding: 5px 10px;
 }
 
 .home main p {
@@ -115,9 +125,13 @@
   margin-bottom: 20px;
 }
 
-.article header ul li {
+.article header ul a {
   display: inline-block;
   margin-right: 10px;
+}
+
+.article header ul li {
+  display: inline;
 }
 
 .article hr {

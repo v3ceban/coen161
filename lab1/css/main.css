@@ -1,0 +1,197 @@
+@import "resets.css";
+
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100dvh;
+}
+
+.home aside,
+.home main {
+  display: flex;
+  flex-direction: column;
+}
+
+.home aside {
+  background: violet;
+  padding: 15dvh 0;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.home aside img {
+  border-radius: 50%;
+}
+
+.home aside p {
+  max-width: 40ch;
+  line-height: 1.5em;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.home aside h1 {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.home ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.home ul li:last-of-type {
+  margin-right: 0;
+}
+
+.home main {
+  padding: calc(15dvh + 100px) 100px;
+}
+
+.home main h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.home main ul {
+  margin-bottom: 30px;
+}
+
+.tag {
+  border: 1px black solid;
+  background: lightgrey;
+  border-radius: 5px;
+  padding: 3px 5px;
+}
+
+.home main p {
+  line-height: 1.3em;
+  margin-bottom: 20px;
+}
+
+.home main nav {
+  align-self: flex-end;
+}
+
+.home main nav a:first-of-type {
+  margin-right: 20px;
+}
+
+.mainNav {
+  background: violet;
+  padding: 10px 250px;
+  text-align: right;
+}
+
+.mainNav nav ul li {
+  display: inline-block;
+}
+
+.mainNav nav ul li a {
+  color: inherit;
+}
+
+.mainNav nav ul li:first-of-type {
+  margin-right: 20px;
+}
+
+.article {
+  margin: 0 200px;
+}
+
+.article header {
+  max-width: 60%;
+  margin: 50px auto 20px;
+}
+
+.article header h1 {
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 2em;
+}
+
+.article header ul {
+  margin-bottom: 20px;
+}
+
+.article header ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.article hr {
+  margin-bottom: 20px;
+}
+
+.article p {
+  font-size: 1em;
+  line-height: 1.3em;
+  margin-bottom: 20px;
+}
+
+.article article {
+  margin: 50px;
+}
+
+footer {
+  margin: 0 250px 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer nav ul li {
+  display: inline-block;
+  border-right: 1px solid black;
+  padding-right: 10px;
+  margin-right: 10px;
+}
+
+footer nav ul li:last-of-type {
+  border: none;
+}
+
+.blog header {
+  max-width: 98%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.blog header h1 {
+  display: inline-block;
+  font-size: 1em;
+  padding: 3px 20px;
+}
+
+.blog header input {
+  line-height: 2.5em;
+}
+
+.blog .content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.blog .content article ul {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.blog .content article ul li {
+  display: inline-block;
+}
+
+.blog .content article h2 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.blog .content article p a {
+  color: inherit;
+}
+
+.blog .content article p {
+  line-height: 1.5em;
+}

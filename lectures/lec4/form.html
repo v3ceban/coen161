@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Form</title>
+  <link rel="stylesheet" href="./main.css" />
+</head>
+
+<body>
+  <h1>Yooooooooooo forms</h1>
+  <nav>
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./page1.html">Page 1</a></li>
+      <li><a href="page2.html">Page 2</a></li>
+      <li><a class="active-nav-page" href="form.html">Page 3</a></li>
+    </ul>
+  </nav>
+  <form action="mailto:example@something.com?subject=formData" enctype="text/plain"
+    onsubmit="location.href='home.html'">
+    <label for="fnam">First Name:</label>
+    <input type="text" name="fnam" id="fnam" />
+    <label for="lnam">Last Name:</label>
+    <input type="text" name="lnam" id="lnam" />
+    <button type="submit" value="submit">Submit</button>
+    <br />
+    <h2>Grade lvl</h2>
+    <br />
+    <label for="glvl1">lvl 1</label>
+    <input type="radio" name="glvl" value="1" id="glvl1" />
+    <label for="glvl2">lvl 2</label>
+    <input type="radio" name="glvl" value="2" id="glvl2" />
+    <label for="glvl3">lvl 3</label>
+    <input type="radio" name="glvl" value="3" id="glvl3" />
+    <label for="glvl4">lvl 4</label>
+    <input type="radio" name="glvl" value="4" id="glvl4" />
+    <br />
+    <h2>Fav food</h2>
+    <label>
+      Cheese
+      <input type="checkbox" name="fav-food" value="cheese" id="cheese" />
+    </label>
+    <label for="cake">Cake</label>
+    <input type="checkbox" name="fav-food" value="cake" id="cake" />
+    <label for="pizza">Pizza</label>
+    <input type="checkbox" name="fav-food" value="pizza" id="pizza" />
+  </form>
+</body>
+
+</html>

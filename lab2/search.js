@@ -17,8 +17,8 @@ function handleInitialSearch() {
 }
 
 function performSearch(query) {
-  const articles = document.querySelectorAll(".content article");
-  const header = document.querySelector("h1.searchQuery");
+  const articles = document.querySelectorAll("section article");
+  const header = document.querySelector("h1.tag");
   if (query == "") {
     header.textContent = "All Articles";
   } else {
@@ -27,7 +27,7 @@ function performSearch(query) {
   }
 
   articles.forEach((article) => {
-    const tags = article.querySelectorAll(".tag");
+    const tags = article.querySelectorAll("li a.tag");
     let hasTag = false;
 
     tags.forEach((tag) => {

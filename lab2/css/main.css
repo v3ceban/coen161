@@ -1,0 +1,105 @@
+@import "resets.css";
+@import "base.css";
+/* .article { */
+/*   margin: 0 200px; */
+/* } */
+/**/
+/* .article header { */
+/*   max-width: 60%; */
+/*   margin: 50px auto 20px; */
+/* } */
+/**/
+/* .article header h1 { */
+/*   font-weight: bold; */
+/*   font-size: 2em; */
+/*   line-height: 2em; */
+/* } */
+/**/
+/* .article header ul { */
+/*   margin-bottom: 20px; */
+/* } */
+/**/
+/* .article header ul a { */
+/*   display: inline-block; */
+/*   margin-right: 10px; */
+/* } */
+/**/
+/* .article header ul li { */
+/*   display: inline; */
+/* } */
+/**/
+/* .article hr { */
+/*   margin-bottom: 20px; */
+/* } */
+/**/
+/* .article p { */
+/*   font-size: 1em; */
+/*   line-height: 1.3em; */
+/*   margin-bottom: 20px; */
+/* } */
+/**/
+/* .article article { */
+/*   margin: 50px; */
+/* } */
+/**/
+/* footer { */
+/*   margin: 0 250px 50px; */
+/*   display: flex; */
+/*   justify-content: space-between; */
+/* } */
+/**/
+/* footer nav ul li { */
+/*   display: inline-block; */
+/*   border-right: 1px solid black; */
+/*   padding-right: 10px; */
+/*   margin-right: 10px; */
+/* } */
+/**/
+/* footer nav ul li:last-of-type { */
+/*   border: none; */
+/* } */
+/**/
+/* .blog header { */
+/*   max-width: 98%; */
+/*   display: flex; */
+/*   justify-content: space-between; */
+/* } */
+/**/
+/* .blog header h1 { */
+/*   display: inline-block; */
+/*   font-size: 2em; */
+/*   padding: 3px 20px; */
+/* } */
+/**/
+/* .blog header input { */
+/*   line-height: 2.5em; */
+/* } */
+/**/
+/* .blog .content { */
+/*   display: grid; */
+/*   grid-template-columns: auto auto auto; */
+/* } */
+/**/
+/* .blog .content article ul { */
+/*   display: flex; */
+/*   justify-content: space-between; */
+/*   margin-bottom: 20px; */
+/* } */
+/**/
+/* .blog .content article ul li { */
+/*   display: inline-block; */
+/* } */
+/**/
+/* .blog .content article h2 { */
+/*   text-align: center; */
+/*   font-size: 1.5em; */
+/*   margin-bottom: 20px; */
+/* } */
+/**/
+/* .blog .content article p a { */
+/*   color: inherit; */
+/* } */
+/**/
+/* .blog .content article p { */
+/*   line-height: 1.5em; */
+/* } */

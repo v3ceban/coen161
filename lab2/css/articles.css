@@ -1,0 +1,42 @@
+main header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 250px 25px;
+  border-bottom: 2px solid violet;
+}
+
+main header h1,
+main header input {
+  line-height: 1.5em;
+  display: inline-block;
+  font-size: 1em;
+  margin: 0;
+}
+
+main header input {
+  border: 2px solid var(--dark-grey);
+  border-radius: 5px;
+}
+
+main section {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: auto auto auto;
+  width: calc(100% - 500px);
+  margin: 50px auto 0;
+}
+
+main section article h2 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+main section article p {
+  margin-bottom: 20px;
+  line-height: 1.5em;
+}
+
+main section article a {
+  color: inherit;
+}

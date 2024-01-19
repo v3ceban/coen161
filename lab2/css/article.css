@@ -1,0 +1,38 @@
+main {
+  max-width: 50%;
+  margin: auto;
+}
+
+article {
+  margin: 20px 0;
+}
+
+article p {
+  margin: 20px 0 30px;
+}
+
+article header {
+  border-bottom: 2px solid violet;
+}
+
+article header p {
+  font-size: 0.8em;
+  margin: 0 0 10px 0;
+  color: var(--darkest-grey);
+}
+
+article footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+article footer nav ul li:after {
+  content: "•";
+  display: inline;
+  margin-left: 20px;
+  color: blueviolet;
+}
+
+article footer nav ul li:last-of-type::after {
+  display: none;
+}

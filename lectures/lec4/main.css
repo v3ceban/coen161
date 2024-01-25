@@ -1,0 +1,51 @@
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  margin: auto;
+}
+
+tr:nth-of-type(2n + 1) {
+  background: red;
+}
+
+nav {
+  background: black;
+  width: 100%;
+  padding: 15px 0;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  color: white;
+  background: black;
+  text-decoration: none;
+  padding: 7px 15px;
+}
+
+nav ul li a:hover,
+nav ul li a:active {
+  background: #111;
+}
+
+nav .active-nav-page {
+  text-decoration: underline;
+}
+
+form {
+  margin: 20px auto;
+  max-width: 80%;
+}

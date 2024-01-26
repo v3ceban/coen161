@@ -5,7 +5,7 @@ article {
 article p,
 article footer {
   width: calc(100% - 500px);
-  margin: 50px auto 30px;
+  margin: 30px auto 0;
 }
 
 article header {

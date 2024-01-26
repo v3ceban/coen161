@@ -20,7 +20,7 @@ function downloadPage() {
         "href",
         "data:text/plain;charset=utf-8," + encodeURIComponent(content),
       );
-      element.setAttribute("download", "page.txt");
+      element.setAttribute("download", "article.html");
       element.style.display = "none";
       document.body.appendChild(element);
       element.click();

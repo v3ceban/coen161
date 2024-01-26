@@ -29,6 +29,7 @@ article footer {
 
 article svg {
   fill: blueviolet;
+  cursor: pointer;
 }
 
 article footer nav ul li:after {

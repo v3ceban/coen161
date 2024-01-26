@@ -2,6 +2,7 @@
 function downloadPage() {
   // Get the current URL
   var url = window.location.href;
+  const fileName = document.querySelector("h1");
 
   // Create a new XMLHttpRequest object
   var xhr = new XMLHttpRequest();
@@ -20,7 +21,7 @@ function downloadPage() {
         "href",
         "data:text/plain;charset=utf-8," + encodeURIComponent(content),
       );
-      element.setAttribute("download", "article.html");
+      element.setAttribute("download", `${fileName}.html`);
       element.style.display = "none";
       document.body.appendChild(element);
       element.click();

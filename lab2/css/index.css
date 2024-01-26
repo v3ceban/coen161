@@ -75,4 +75,5 @@ main nav {
 
 main nav a:first-of-type {
   margin-right: 20px;
+  color: var(--darkest-grey);
 }

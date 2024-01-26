@@ -32,15 +32,23 @@ article svg {
   cursor: pointer;
 }
 
+article footer nav ul li a {
+  color: var(--darkest-grey);
+}
+
 article footer nav ul li:after {
   content: "•";
   display: inline;
   margin-left: 20px;
-  color: blueviolet;
+  color: var (--darkest-grey);
 }
 
 article footer nav ul li:last-of-type::after {
   display: none;
+}
+
+article footer nav ul li:last-of-type a {
+  color: blueviolet;
 }
 
 article .highlight {

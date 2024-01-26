@@ -14,8 +14,17 @@ function downloadPage() {
     if (xhr.status === 200) {
       // The request was successful
       var content = xhr.responseText;
-      console.log(content);
-      // You can do something with the downloaded content here
+      // start downloading content into a text file
+      var element = document.createElement("a");
+      element.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," + encodeURIComponent(content),
+      );
+      element.setAttribute("download", "page.txt");
+      element.style.display = "none";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
     } else {
       // The request failed
       console.error("Request failed. Status code: " + xhr.status);

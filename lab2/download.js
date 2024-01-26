@@ -22,7 +22,7 @@ function downloadPage() {
         "href",
         "data:text/plain;charset=utf-8," + encodeURIComponent(content),
       );
-      element.setAttribute("download", `${fileName}.html`);
+      element.setAttribute("download", `${fileName.textContent}.html`);
       element.style.display = "none";
       document.body.appendChild(element);
       element.click();

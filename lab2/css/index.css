@@ -25,7 +25,7 @@ aside img {
 aside .fa-brands {
   margin: 0 0 20px;
   font-size: 2em;
-  color: black;
+  color: var(--black);
 }
 
 aside p {

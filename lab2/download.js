@@ -1,4 +1,4 @@
-//write a function to download the contents of the page
+//eslint-disable-next-line
 function downloadPage() {
   // Get the current URL
   var url = window.location.href;

@@ -3,6 +3,7 @@ function downloadPage() {
   // Get the current URL
   var url = window.location.href;
   const fileName = document.querySelector("h1");
+  console.log(fileName);
 
   // Create a new XMLHttpRequest object
   var xhr = new XMLHttpRequest();

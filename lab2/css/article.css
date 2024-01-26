@@ -10,7 +10,7 @@ article footer {
 
 article header {
   border-bottom: 2px solid violet;
-  padding: 50px calc(100vw - 400px) 25px;
+  padding: 50px 400px 25px;
 }
 
 article header p {

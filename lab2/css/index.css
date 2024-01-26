@@ -13,7 +13,7 @@ main {
 
 aside {
   background: violet;
-  padding: 25dvh 0;
+  padding: 20dvh 0;
   align-items: center;
 }
 
@@ -47,7 +47,7 @@ aside h1 {
 }
 
 main {
-  padding: calc(25dvh + 100px) 100px;
+  padding: calc(20dvh + 100px) 100px;
 }
 
 main h2 {

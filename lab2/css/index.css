@@ -4,7 +4,7 @@ body {
   grid-template-rows: 100dvh;
   overflow: hidden;
 
-  2 aside,
+  aside,
   main {
     display: flex;
     flex-direction: column;

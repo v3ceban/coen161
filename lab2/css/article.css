@@ -24,6 +24,11 @@ article header p {
 article footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+article svg {
+  fill: blueviolet;
 }
 
 article footer nav ul li:after {
@@ -35,4 +40,8 @@ article footer nav ul li:after {
 
 article footer nav ul li:last-of-type::after {
   display: none;
+}
+
+article .highlight {
+  background: violet;
 }

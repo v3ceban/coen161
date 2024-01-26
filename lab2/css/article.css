@@ -4,13 +4,13 @@ article {
 
 article p,
 article footer {
-  max-width: 800px;
+  width: calc(100% - 500px);
   margin: 30px auto 0;
 }
 
 article header {
   border-bottom: 2px solid violet;
-  padding: 50px 400px 25px;
+  padding: 50px 250px 25px;
 }
 
 article header p {

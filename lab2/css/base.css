@@ -5,6 +5,10 @@
   --black: 333;
 }
 
+bodu {
+  color: var(--black);
+}
+
 ::selection {
   background: violet;
 }

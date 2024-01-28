@@ -1,5 +1,9 @@
 header {
+  position: relative;
+  margin: 8px;
   padding: 20px;
+  border: 3px solid $black;
+  box-shadow: $black -3px 3px 0px;
 
   nav {
     display: flex;
@@ -11,11 +15,17 @@ header {
 
       li {
         margin-right: 20px;
+        font-size: 1.2em;
 
         &:last-of-type {
           margin-right: 0;
         }
       }
     }
+  }
+
+  .pageNumber {
+    right: 0;
+    top: 50px;
   }
 }

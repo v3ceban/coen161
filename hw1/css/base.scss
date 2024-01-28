@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $black;
+  background: $yellow;
+  font-family: "Inconsolata", monospace;
+  font-weight: 500;
+
+  ::selection {
+    background: $blue;
+  }
+}
+
+label,
+textarea {
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 1.5em;
+}
+
+h2 {
+  font-size: 2em;
+  grid-column: 1/3;
+  margin: 20px 0 0;
+}
+
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+h3,
+.contact section>p:first-of-type {
+  border: 5px solid $black;
+  border-radius: 5px;
+  margin: 0 0 25px;
+  padding: 10px 0 10px 20px;
+  background: $purple;
+  font-size: 2em;
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: auto auto;
+  box-shadow: $black -4px 4px 0;
+
+  &::after {
+    content: "";
+    display: inline-block;
+    background: repeating-linear-gradient(-45deg,
+        $purple 0px,
+        $purple 6px,
+        transparent 4px,
+        transparent 12px);
+    background-color: $yellow;
+    border-left: 3px solid $black;
+    transform: scale(2);
+  }
+}
+
+p {
+  line-height: 1.5em;
+}
+
+a {
+  color: inherit;
+
+  &:hover {
+    font-weight: 700;
+  }
+}
+
+img {
+  border-radius: 5px;
+  box-shadow: $black -5px 5px 0;
+}
+
+main {
+  padding: 20px 10% 50px;
+  line-height: 1.5em;
+  display: grid;
+  gap: 50px;
+}
+
+section,
+aside {
+  background: $blue;
+  border: 5px solid $black;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow:
+    $black -8px 8px 0,
+    $black 0 8px 0,
+    $black -8px 0 0;
+
+  ::selection {
+    background: $yellow;
+  }
+}
+
+.pageNumber {
+  position: absolute;
+  font-size: 5em;
+  color: $black;
+}
+
+.highlight {
+  background: $yellow;
+
+  &::selection {
+    background: $purple;
+  }
+}

@@ -2,4 +2,24 @@
   section {
     grid-column: span 2;
   }
+
+  form {
+    display: grid;
+    margin-bottom: 20px;
+
+    label,
+    button {
+      width: 80%;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto 20px;
+
+      ::selection {
+        background: $blue;
+      }
+    }
+  }
 }

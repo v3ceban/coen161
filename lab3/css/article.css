@@ -1,0 +1,56 @@
+main {
+  max-width: 50%;
+  margin: auto;
+}
+
+article {
+  margin: 20px 0;
+}
+
+article p {
+  margin: 20px 0 30px;
+}
+
+article header {
+  border-bottom: 2px solid violet;
+}
+
+article header p {
+  font-size: 0.8em;
+  margin: 0 0 10px 0;
+  color: var(--darkest-grey);
+}
+
+article footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+article svg {
+  fill: blueviolet;
+  cursor: pointer;
+}
+
+article footer nav ul li a {
+  color: var(--darkest-grey);
+}
+
+article footer nav ul li:after {
+  content: "•";
+  display: inline;
+  margin-left: 20px;
+  color: var(--darkest-grey);
+}
+
+article footer nav ul li:last-of-type::after {
+  display: none;
+}
+
+article footer nav ul li:last-of-type a {
+  color: blueviolet;
+}
+
+article .highlight {
+  background: violet;
+}

@@ -51,7 +51,7 @@ function handleHighlight() {
   range.surroundContents(span);
   span.addEventListener("click", (e) => {
     let span = e.target;
-    let content = span.textContent;
+    let content = document.createTextNode(span.textContent);
     span.parentNode.replaceChild(content, span);
   });
 }

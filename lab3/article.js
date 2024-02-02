@@ -50,6 +50,7 @@ function handleHighlight() {
     let span = document.createElement("span");
     span.classList.add("highlight");
     range.surroundContents(span);
+    selection.removeAllRanges(); // Add this line to unselect the selection
     span.addEventListener("click", (e) => {
       let span = e.target;
       let content = document.createTextNode(span.textContent);

@@ -47,15 +47,17 @@ document.addEventListener("touchend", handleHighlight);
 function handleHighlight() {
   let selection = window.getSelection();
   let range = selection.getRangeAt(0);
-
+  if (
+    range.commonAncestorContainer.tagName === "SPAN" &&
+    range.commonAncestorContainer.classList.contains("highlight")
+  ) {
+    return;
+  }
   let highlightNode = document.createElement("span");
   highlightNode.classList.add("highlight");
   range.surroundContents(highlightNode);
-
   highlightNode.addEventListener("click", (e) => {
-    let span = e.target;
-    let content = span.innerHTML;
-    span.parentNode.replaceChild(document.createTextNode(content), span);
+    e.target.classList.remove("highlight");
   });
 }
 

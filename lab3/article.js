@@ -42,7 +42,6 @@ window.addEventListener("scroll", () => {
 //    file and click it to download JSON file.
 
 document.addEventListener("mouseup", handleHighlight);
-document.addEventListener("touchend", handleHighlight);
 
 function handleHighlight() {
   let selection = window.getSelection();

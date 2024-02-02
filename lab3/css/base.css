@@ -18,6 +18,7 @@ body {
   color: var(--darkest-grey);
   border-radius: 5px;
   padding: 5px 10px;
+  cursor: pointer;
 }
 
 ul li {

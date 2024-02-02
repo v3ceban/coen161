@@ -50,9 +50,10 @@ function handleHighlight() {
   let span = document.createElement("span");
   span.classList.add("highlight");
   range.surroundContents(span);
-  span.addEventListener("click", () => {
-    let content = span.innerHTML;
-    span.outerHTML = content;
+  span.addEventListener("click", (e) => {
+    let span = e.target;
+    let content = span.textContent;
+    span.parentNode.replaceChild(content, span);
   });
 }
 

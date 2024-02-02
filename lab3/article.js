@@ -45,15 +45,17 @@ document.addEventListener("mouseup", handleHighlight);
 
 function handleHighlight() {
   let selection = window.getSelection();
-  let range = selection.getRangeAt(0);
-  let span = document.createElement("span");
-  span.classList.add("highlight");
-  range.surroundContents(span);
-  span.addEventListener("click", (e) => {
-    let span = e.target;
-    let content = document.createTextNode(span.textContent);
-    span.parentNode.replaceChild(content, span);
-  });
+  if (selection.toString().length > 0) {
+    let range = selection.getRangeAt(0);
+    let span = document.createElement("span");
+    span.classList.add("highlight");
+    range.surroundContents(span);
+    span.addEventListener("click", (e) => {
+      let span = e.target;
+      let content = document.createTextNode(span.textContent);
+      span.parentNode.replaceChild(content, span);
+    });
+  }
 }
 
 let downloadButton = document.getElementById("downloadButton");

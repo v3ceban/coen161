@@ -58,6 +58,16 @@ function handleHighlight() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("highlight")) {
+      let span = e.target;
+      let content = document.createTextNode(span.textContent);
+      span.parentNode.replaceChild(content, span);
+    }
+  });
+});
+
 let downloadButton = document.getElementById("downloadButton");
 downloadButton.addEventListener("click", () => {
   let highlightedElements = document.getElementsByClassName("highlight");

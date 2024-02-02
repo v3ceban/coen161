@@ -51,6 +51,10 @@ function handleHighlight() {
     range.commonAncestorContainer.tagName === "SPAN" &&
     range.commonAncestorContainer.classList.contains("highlight")
   ) {
+    range.surroundContents(highlightNode);
+    highlightNode.addEventListener("click", (e) => {
+      e.target.classList.remove("highlight");
+    });
     return;
   }
   let highlightNode = document.createElement("span");

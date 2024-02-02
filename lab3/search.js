@@ -1,59 +1,88 @@
-//eslint-disable-next-line
-function filterArticles(event) {
-  if (event.keyCode === 13) {
-    const searchInput = event.target.value.toLowerCase();
-    performSearch(searchInput);
-  }
+let searchedTags = [];
+
+function createTag(tag) {
+  let newTag = document.createElement("span");
+  newTag.classList.add("tag");
+  newTag.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+  newTag.addEventListener("click", function() {
+    const index = searchedTags.indexOf(tag);
+    if (index > -1) {
+      searchedTags.splice(index, 1);
+    }
+    newTag.remove();
+    performSearch(searchedTags);
+  });
+  return newTag;
 }
 
 // Function to handle initial search trigger on page load
 function handleInitialSearch() {
-  const searchParam = new URLSearchParams(window.location.search).get("tag");
-
-  if (searchParam) {
-    const searchInput = searchParam.toLowerCase();
-    performSearch(searchInput);
+  const searchParams = new URLSearchParams(window.location.search);
+  const searchTags = searchParams.getAll("tag");
+  if (searchTags.length > 0) {
+    searchTags.forEach((tag) => {
+      const searchInput = tag.toLowerCase();
+      searchedTags.push(searchInput);
+      appendTag(searchInput);
+    });
+    performSearch(searchedTags);
   }
 }
 
 function performSearch(query) {
-  const articles = document.querySelectorAll("section article");
-  const header = document.querySelector("h1.tag");
-  if (query == "") {
-    header.textContent = "All Articles";
-  } else {
-    header.textContent =
-      "Searching for: " + query.charAt(0).toUpperCase() + query.slice(1);
-  }
+  const articles = document.querySelectorAll("article");
 
   articles.forEach((article) => {
-    const tags = article.querySelectorAll("li a.tag");
-    let hasTag = false;
+    const tags = article.querySelectorAll("a.tag");
+    let hasAllTags = true;
 
-    tags.forEach((tag) => {
-      if (tag.textContent.toLowerCase().includes(query)) {
-        hasTag = true;
+    query.forEach((tag) => {
+      let tagFound = false;
+      tags.forEach((articleTag) => {
+        if (tag === articleTag.textContent.toLowerCase()) {
+          tagFound = true;
+        }
+      });
+      if (!tagFound) {
+        hasAllTags = false;
       }
     });
 
-    if (!hasTag) {
-      article.style.display = "none";
-    } else {
+    if (hasAllTags || query.length === 0) {
       article.style.display = "block";
+    } else {
+      article.style.display = "none";
     }
   });
-  // Add search query to the URL
-  updateURL(query);
 }
 
-function updateURL(searchInput) {
-  const newURL =
-    window.location.href.split("?")[0] +
-    "?tag=" +
-    encodeURIComponent(searchInput);
+//eslint-disable-next-line
+function filterArticles(event) {
+  if (event.keyCode === 13) {
+    const searchInput = event.target.value.toLowerCase();
+    searchedTags.push(searchInput);
+    appendTag(searchInput);
+    performSearch(searchedTags);
+    event.target.value = "";
 
-  // Update the URL without reloading the page
-  history.pushState({ tag: searchInput }, document.title, newURL);
+    // Update URL with searched tags
+    const searchParams = new URLSearchParams();
+    searchedTags.forEach((tag) => {
+      searchParams.append("tag", tag);
+    });
+    const newUrl =
+      window.location.origin +
+      window.location.pathname +
+      "?" +
+      searchParams.toString();
+    window.history.pushState(null, null, newUrl);
+  }
+}
+
+function appendTag(tag) {
+  const h1 = document.querySelector("h1");
+  const newTag = createTag(tag);
+  h1.appendChild(newTag);
 }
 
 handleInitialSearch();

@@ -34,7 +34,7 @@ window.addEventListener("scroll", () => {
 // 1. On each mouseup/toucheend get selected items from window
 //    object. Create span with class highlight and surround all
 //    selection in this span. Add a click event listener to this
-//    span to delete highlight class.
+//    span to replace this span with its content.
 // 2. Get download button and add click event listener. On each
 //    click get all highlights and add them to an array. Stringify
 //    and encode it into JSON. Create a link to download the string,
@@ -53,7 +53,9 @@ function handleHighlight() {
   range.surroundContents(highlightNode);
 
   highlightNode.addEventListener("click", (e) => {
-    e.target.classList.remove("highlight");
+    let span = e.target;
+    let content = span.innerHTML;
+    span.parentNode.replaceChild(document.createTextNode(content), span);
   });
 }
 

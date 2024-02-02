@@ -42,20 +42,23 @@ window.addEventListener("scroll", () => {
 //    file and click it to download JSON file.
 
 document.addEventListener("mouseup", handleHighlight);
+document.addEventListener("touchend", handleHighlight);
 
 function handleHighlight() {
   let selection = window.getSelection();
-  let range = selection.getRangeAt(0);
+  if (selection.rangeCount > 0) {
+    let range = selection.getRangeAt(0);
 
-  let highlightNode = document.createElement("span");
-  highlightNode.classList.add("highlight");
-  range.surroundContents(highlightNode);
+    let highlightNode = document.createElement("span");
+    highlightNode.classList.add("highlight");
+    range.surroundContents(highlightNode);
 
-  highlightNode.addEventListener("click", (e) => {
-    let span = e.target;
-    let content = span.innerHTML;
-    span.parentNode.replaceChild(document.createTextNode(content), span);
-  });
+    highlightNode.addEventListener("click", (e) => {
+      let span = e.target;
+      let content = span.innerHTML;
+      span.parentNode.replaceChild(document.createTextNode(content), span);
+    });
+  }
 }
 
 let downloadButton = document.getElementById("downloadButton");

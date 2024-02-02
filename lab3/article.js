@@ -54,9 +54,7 @@ function handleHighlight() {
     range.surroundContents(highlightNode);
 
     highlightNode.addEventListener("click", (e) => {
-      let span = e.target;
-      let content = span.innerHTML;
-      span.parentNode.replaceChild(document.createTextNode(content), span);
+      e.classList.remove("highlight");
     });
   }
 }

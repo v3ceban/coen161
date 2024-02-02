@@ -46,17 +46,14 @@ document.addEventListener("touchend", handleHighlight);
 
 function handleHighlight() {
   let selection = window.getSelection();
-  if (selection.rangeCount > 0) {
-    let range = selection.getRangeAt(0);
-
-    let highlightNode = document.createElement("span");
-    highlightNode.classList.add("highlight");
-    range.surroundContents(highlightNode);
-
-    highlightNode.addEventListener("click", (e) => {
-      e.classList.remove("highlight");
-    });
-  }
+  let range = selection.getRangeAt(0);
+  let span = document.createElement("span");
+  span.classList.add("highlight");
+  range.surroundContents(span);
+  span.addEventListener("click", () => {
+    let content = span.innerHTML;
+    span.outerHTML = content;
+  });
 }
 
 let downloadButton = document.getElementById("downloadButton");

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="./quiz-min.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./js/main.js" defer></script>
+  <title>Coen 161 - HW 2 - Quiz Game</title>
+</head>
+
+<body>
+  <header>
+    <h1>COEN 161 Quiz</h1>
+    <img src="./quiz-large.png" alt="Quiz Game Logo" />
+    <h2>Subject for today: <span id="subject"></span></h2>
+    <p>Date</p>
+  </header>
+  <main>
+    <section>
+      <h2>Score</h2>
+      <p>Correct: <span id="correct">0</span></p>
+      <p>Incorrect: <span id="incorrect">0</span></p>
+      <p>Points: <span id="points">0</span></p>
+    </section>
+    <section>
+      <h2>Question <span id="question-number"></span></h2>
+      <p id="question-text"></p>
+      <form id="question-body"></form>
+      <p id="question-score"></p>
+    </section>
+    <section>
+      <button>Start</button>
+      <button>Skip</button>
+      <button>Stop</button>
+    </section>
+  </main>
+  <footer>
+    <h2>Footer</h2>
+  </footer>
+</body>
+
+</html>

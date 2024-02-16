@@ -1,188 +1,145 @@
 // Constants
+const dateField = document.querySelector("#date");
+const date = new Date().toLocaleDateString();
+// const lastDigit = date.charAt(date.length - 6); //this should work for until year 10000. will fix it when the time comes
+
 const buttons = document.querySelectorAll("button");
+
 const correctScore = document.querySelector("#correct");
 const incorrectScore = document.querySelector("#incorrect");
 const points = document.querySelector("#points");
 
-// Questions
-const questions = {
-  JavaScript: [
-    {
-      id: 1,
-      type: "text-input",
-      title: "What is the syntax for declaring a variable in JavaScript?",
-      body: "",
-      correct: "var",
-    },
-    {
-      id: 2,
-      type: "selection",
-      title: "Which of the following is NOT a JavaScript data type?",
-      body: ["a) String", "b) Boolean", "c) Float", "d) Number"],
-      correct: "c) Float",
-    },
-    {
-      id: 3,
-      type: "checkbox",
-      title: "Which of the following are JavaScript frameworks?",
-      body: ["a) Angular", "b) React", "c) Vue", "d) jQuery"],
-      correct: ["a) Angular", "b) React", "c) Vue"],
-    },
-    {
-      id: 4,
-      type: "text-input",
-      title: "What is the output of the following code: console.log(2 + '2')?",
-      body: "",
-      correct: "22",
-    },
-    {
-      id: 5,
-      type: "selection",
-      title: "Which keyword is used to exit a loop in JavaScript?",
-      body: ["a) break", "b) continue", "c) return", "d) exit"],
-      correct: "a) break",
-    },
-    {
-      id: 6,
-      type: "checkbox",
-      title: "Which of the following are JavaScript array methods?",
-      body: ["a) push()", "b) pop()", "c) slice()", "d) splice()"],
-      correct: ["a) push()", "b) pop()", "c) slice()", "d) splice()"],
-    },
-    {
-      id: 7,
-      type: "text-input",
-      title: "What is the result of the expression '5' == 5?",
-      body: "",
-      correct: "true",
-    },
-    {
-      id: 8,
-      type: "selection",
-      title: "Which of the following is used to add a comment in JavaScript?",
-      body: ["a) //", "b) /* */", "c) <!-- -->", "d) ##"],
-      correct: "a) //",
-    },
-    {
-      id: 9,
-      type: "checkbox",
-      title: "Which of the following are JavaScript string methods?",
-      body: ["a) length()", "b) toUpperCase()", "c) trim()", "d) concat()"],
-      correct: ["b) toUpperCase()", "c) trim()", "d) concat()"],
-    },
-    {
-      id: 10,
-      type: "text-input",
-      title: "What is the result of the expression NaN === NaN?",
-      body: "",
-      correct: "false",
-    },
-  ],
-  PHP: [
-    {
-      id: 1,
-      type: "text-input",
-      title: "What does PHP stand for?",
-      body: "",
-      correct: "Hypertext Preprocessor",
-    },
-    {
-      id: 2,
-      type: "selection",
-      title: "Which of the following is NOT a PHP data type?",
-      body: ["a) String", "b) Boolean", "c) Float", "d) Integer"],
-      correct: "c) Float",
-    },
-    {
-      id: 3,
-      type: "checkbox",
-      title: "Which of the following are PHP frameworks?",
-      body: ["a) Laravel", "b) Symfony", "c) CodeIgniter", "d) Django"],
-      correct: ["a) Laravel", "b) Symfony", "c) CodeIgniter"],
-    },
-    {
-      id: 4,
-      type: "text-input",
-      title: "What is the output of the following code: echo 'Hello, World!';?",
-      body: "",
-      correct: "Hello, World!",
-    },
-    {
-      id: 5,
-      type: "selection",
-      title: "Which keyword is used to exit a loop in PHP?",
-      body: ["a) break", "b) continue", "c) return", "d) exit"],
-      correct: "a) break",
-    },
-    {
-      id: 6,
-      type: "checkbox",
-      title: "Which of the following are PHP array functions?",
-      body: [
-        "a) array_push()",
-        "b) array_pop()",
-        "c) array_slice()",
-        "d) array_splice()",
-      ],
-      correct: [
-        "a) array_push()",
-        "b) array_pop()",
-        "c) array_slice()",
-        "d) array_splice()",
-      ],
-    },
-    {
-      id: 7,
-      type: "text-input",
-      title: "What is the result of the expression '5' == 5 in PHP?",
-      body: "",
-      correct: "true",
-    },
-    {
-      id: 8,
-      type: "selection",
-      title: "Which of the following is used to add a comment in PHP?",
-      body: ["a) //", "b) /* */", "c) <!-- -->", "d) ##"],
-      correct: "b) /* */",
-    },
-    {
-      id: 9,
-      type: "checkbox",
-      title: "Which of the following are PHP string functions?",
-      body: ["a) strlen()", "b) strtoupper()", "c) trim()", "d) concat()"],
-      correct: ["a) strlen()", "b) strtoupper()", "c) trim()"],
-    },
-    {
-      id: 10,
-      type: "text-input",
-      title: "What is the result of the expression 10 % 3 in PHP?",
-      body: "",
-      correct: "1",
-    },
-  ],
-};
+const questionNum = document.querySelector("#question-number");
+const questionText = document.querySelector("#question-text");
+const questionBody = document.querySelector("#question-body");
+
 
 // Variables
 let gameStarted = false;
+let currentQuestion = 0;
+let currentTopic = 0;
 
 // Functions
+const updateScore = (correct) => {
+  alert(correct);
+  if (correct) {
+    correctScore.textContent++;
+    points.textContent++;
+  } else {
+    incorrectScore.textContent++;
+  }
+}
+
+const evaluateAnswer = (answer, correct) => {
+  if (!gameStarted) {
+    return undefined;
+  }
+
+  if (Array.isArray(answer)) {
+    if (answer.length !== correct.length) {
+      return false;
+    }
+    for (let i = 0; i < answer.length; i++) {
+      if (!correct.includes(answer[i])) {
+        return false;
+      }
+    }
+    correctScore.textContent++;
+  } else {
+    if (answer !== correct) {
+      return false;
+    }
+  }
+  return true;
+}
+
+const setQuestion = (questionSet, index) => {
+  const question = questionSet[index];
+  questionNum.textContent = `${question.id}/${questionSet.length}`;
+  questionText.textContent = question.title;
+  questionBody.innerHTML = "";
+
+  const submit = document.createElement("button");
+  submit.setAttribute("type", "submit");
+  submit.textContent = "Submit";
+
+  if (question.type === "text-input") {
+    const input = document.createElement("input");
+    input.setAttribute("id", "text-answer");
+    questionBody.appendChild(input);
+    submit.addEventListener("click", (e) => {
+      e.preventDefault();
+      updateScore(evaluateAnswer(input.value, question.correct));
+    });
+  }
+  if (question.type === "selection") {
+    question.body.forEach((option) => {
+      const input = document.createElement("input");
+      const label = document.createElement("label");
+      label.textContent = option;
+      input.setAttribute("type", "radio");
+      input.setAttribute("name", "answer");
+      input.setAttribute("value", option);
+      label.appendChild(input);
+      questionBody.appendChild(label);
+    });
+    submit.addEventListener("click", (e) => {
+      e.preventDefault();
+      updateScore(evaluateAnswer(questionBody.querySelector("input[name=answer]:checked").value, question.correct));
+    });
+  }
+  if (question.type === "checkbox") {
+    question.body.forEach((option) => {
+      const input = document.createElement("input");
+      const label = document.createElement("label");
+      label.textContent = option;
+      input.setAttribute("type", "checkbox");
+      input.setAttribute("name", "answer");
+      input.setAttribute("value", option);
+      label.appendChild(input);
+      questionBody.appendChild(label);
+    });
+    submit.addEventListener("click", (e) => {
+      e.preventDefault();
+      const checked = [];
+      questionBody.querySelectorAll("input[name=answer]:checked").forEach((input) => {
+        checked.push(input.value);
+      });
+      updateScore(evaluateAnswer(checked, question.correct));
+    });
+  }
+
+  questionBody.appendChild(submit);
+}
+
 const triggerClick = (button) => {
   switch (button) {
     case "Start":
       if (!gameStarted) {
         gameStarted = true;
-        console.log(gameStarted);
+        currentQuestion = 0;
+        setQuestion(questions[currentTopic], currentQuestion); //eslint-disable-line
       }
       break;
+
     case "Stop":
       if (gameStarted) {
         gameStarted = false;
-        console.log(gameStarted);
+        currentQuestion = 0;
+        // stopGame();
       }
       break;
+
     case "Skip":
       if (gameStarted) {
-        points.innerHTML--;
+        currentQuestion++;
+        points.textContent--;
+        if (currentQuestion >= questions[currentTopic].length) { //eslint-disable-line
+          gameStarted = false;
+          // stopGame();
+        } else {
+          setQuestion(questions[currentTopic], currentQuestion); //eslint-disable-line
+        }
       }
       break;
   }
@@ -191,6 +148,8 @@ const triggerClick = (button) => {
 // Initialization
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    triggerClick(button.innerHTML);
+    triggerClick(button.textContent);
   });
 });
+
+dateField.textContent = `Today's date: ${date}`;

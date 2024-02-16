@@ -20,6 +20,16 @@ let currentQuestion = 0;
 let currentTopic = 0;
 
 // Functions
+const nextQuestion = () => {
+  currentQuestion++;
+  if (currentQuestion >= questions[currentTopic].length) { //eslint-disable-line
+    gameStarted = false;
+    // stopGame();
+  } else {
+    setQuestion(questions[currentTopic], currentQuestion); //eslint-disable-line
+  }
+}
+
 const updateScore = (correct) => {
   alert(correct);
   if (correct) {
@@ -28,6 +38,7 @@ const updateScore = (correct) => {
   } else {
     incorrectScore.textContent++;
   }
+  nextQuestion();
 }
 
 const evaluateAnswer = (answer, correct) => {
@@ -69,7 +80,9 @@ const setQuestion = (questionSet, index) => {
     questionBody.appendChild(input);
     submit.addEventListener("click", (e) => {
       e.preventDefault();
-      updateScore(evaluateAnswer(input.value, question.correct));
+      if (gameStarted) {
+        updateScore(evaluateAnswer(input.value, question.correct));
+      }
     });
   }
   if (question.type === "selection") {
@@ -85,7 +98,9 @@ const setQuestion = (questionSet, index) => {
     });
     submit.addEventListener("click", (e) => {
       e.preventDefault();
-      updateScore(evaluateAnswer(questionBody.querySelector("input[name=answer]:checked").value, question.correct));
+      if (gameStarted) {
+        updateScore(evaluateAnswer(questionBody.querySelector("input[name=answer]:checked").value, question.correct));
+      }
     });
   }
   if (question.type === "checkbox") {
@@ -105,7 +120,9 @@ const setQuestion = (questionSet, index) => {
       questionBody.querySelectorAll("input[name=answer]:checked").forEach((input) => {
         checked.push(input.value);
       });
-      updateScore(evaluateAnswer(checked, question.correct));
+      if (gameStarted) {
+        updateScore(evaluateAnswer(checked, question.correct));
+      }
     });
   }
 
@@ -132,14 +149,8 @@ const triggerClick = (button) => {
 
     case "Skip":
       if (gameStarted) {
-        currentQuestion++;
         points.textContent--;
-        if (currentQuestion >= questions[currentTopic].length) { //eslint-disable-line
-          gameStarted = false;
-          // stopGame();
-        } else {
-          setQuestion(questions[currentTopic], currentQuestion); //eslint-disable-line
-        }
+        nextQuestion();
       }
       break;
   }

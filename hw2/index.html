@@ -12,34 +12,35 @@
 </head>
 
 <body>
-  <header>
-    <h1>COEN 161 Quiz</h1>
-    <img src="./quiz-large.png" alt="Quiz Game Logo" />
-    <h2>Subject for today: <span id="subject"></span></h2>
-    <p id="date">Date</p>
-  </header>
-  <main>
-    <section>
-      <h2>Score</h2>
-      <p>Correct: <span id="correct">0</span></p>
-      <p>Incorrect: <span id="incorrect">0</span></p>
-      <p>Points: <span id="points">0</span></p>
-    </section>
-    <section>
-      <h2>Question <span id="question-number"></span></h2>
-      <p id="question-text"></p>
-      <form id="question-body">
-      </form>
-    </section>
-    <section>
-      <button>Start</button>
-      <button>Skip</button>
-      <button>Stop</button>
-    </section>
-  </main>
-  <footer>
-    <h2>Footer</h2>
-  </footer>
+  <div class="container">
+    <header>
+      <h1>COEN 161 Quiz</h1>
+      <img src="./quiz-large.png" alt="Quiz Game Logo" />
+      <h2>Subject for today: <span id="subject"></span></h2>
+      <p id="date">Date</p>
+    </header>
+    <main>
+      <section>
+        <h2>Score</h2>
+        <p>Correct: <span id="correct">0</span></p>
+        <p>Incorrect: <span id="incorrect">0</span></p>
+        <p>Points: <span id="points">0</span></p>
+      </section>
+      <section>
+        <h2>Question <span id="question-number">0/10</span></h2>
+        <p id="question-text">Start the game to see the question</p>
+        <form id="question-body"></form>
+      </section>
+      <section>
+        <button>Start</button>
+        <button>Skip</button>
+        <button>Stop</button>
+      </section>
+    </main>
+    <footer>
+      <h2>Footer</h2>
+    </footer>
+  </div>
 </body>
 
 </html>

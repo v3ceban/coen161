@@ -1,4 +1,5 @@
-const questions = [ //eslint-disable-line
+//eslint-disable-next-line
+const questions = [
   [
     {
       id: 1,
@@ -113,12 +114,7 @@ const questions = [ //eslint-disable-line
       id: 6,
       type: "checkbox",
       title: "Which of the following are PHP array functions?",
-      body: [
-        "array_push()",
-        "array_pop()",
-        "array_slice()",
-        "array_splice()",
-      ],
+      body: ["array_push()", "array_pop()", "array_slice()", "array_splice()"],
       correct: [
         "array_push()",
         "array_pop()",
@@ -167,23 +163,25 @@ const questions = [ //eslint-disable-line
     {
       id: 2,
       type: "text-input",
-      title: "What is the purpose of the <head> tag in HTML?",
+      title: "What infromation is contained in the <head> tag in HTML?",
       body: "",
-      correct: "To contain meta-information about the HTML document",
+      correct: "meta-information",
     },
     {
       id: 3,
       type: "selection",
-      title: "Which attribute is used to specify the URL of an external script file in HTML?",
+      title:
+        "Which attribute is used to specify the URL of an external script file in HTML?",
       body: ["src", "href", "link", "script"],
       correct: "src",
     },
     {
       id: 4,
       type: "text-input",
-      title: "What is the purpose of the alt attribute in the <img> tag?",
+      title:
+        "Alt attribute in the <img> tag provides ******** text for an image.",
       body: "",
-      correct: "To provide alternative text for an image",
+      correct: "Alternative",
     },
     {
       id: 5,
@@ -202,9 +200,10 @@ const questions = [ //eslint-disable-line
     {
       id: 7,
       type: "text-input",
-      title: "What is the purpose of the <table> tag in HTML?",
+      title:
+        "Should you use an <h3> tag if you don't have an <h2> tag in your page?",
       body: "",
-      correct: "To create a table structure",
+      correct: "No",
     },
     {
       id: 8,
@@ -226,7 +225,7 @@ const questions = [ //eslint-disable-line
       title: "Which of the following are valid HTML input types?",
       body: ["text", "number", "boolean", "email"],
       correct: ["text", "number", "email"],
-    }
+    },
   ],
   [
     {
@@ -247,16 +246,17 @@ const questions = [ //eslint-disable-line
     {
       id: 3,
       type: "text-input",
-      title: "What is the purpose of the display property in CSS?",
+      title:
+        "What property would you use to control the display of an element?",
       body: "",
-      correct: "To control how an element is displayed",
+      correct: "Display",
     },
     {
       id: 4,
       type: "text-input",
-      title: "What is the purpose of the padding property in CSS?",
+      title: "Padding property controls the spacing ****** the element",
       body: "",
-      correct: "To control the spacing within an element",
+      correct: "Inside",
     },
     {
       id: 5,
@@ -275,15 +275,16 @@ const questions = [ //eslint-disable-line
     {
       id: 7,
       type: "text-input",
-      title: "What is the purpose of the margin property in CSS?",
+      title: "Margin property controls the spacing ****** the element",
       body: "",
-      correct: "To control the spacing around an element",
+      correct: "Around",
     },
     {
       id: 8,
       type: "selection",
-      title: "Which property is used to change the background color of an element in CSS?",
-      body: ["color", "background-color", "background", "background-image"],
+      title:
+        "Which property is used to change the background color of an element in CSS?",
+      body: ["color", "background-color", "bg-color", "background-image"],
       correct: "background-color",
     },
     {
@@ -296,16 +297,504 @@ const questions = [ //eslint-disable-line
     {
       id: 10,
       type: "selection",
-      title: "Which property is used to change the font size of an element in CSS?",
+      title:
+        "Which property is used to change the font size of an element in CSS?",
       body: ["font-size", "text-size", "font-style", "text-style"],
       correct: "font-size",
-    }
+    },
   ],
-  [],
-  [],
-  [],
-  [],
-  [],
-  [],
+  [
+    {
+      id: 1,
+      type: "text-input",
+      title: "What function is used to render a React component?",
+      body: "",
+      correct: "render",
+      topic: "React",
+    },
+    {
+      id: 2,
+      type: "selection",
+      title:
+        "Which lifecycle method is invoked immediately after a component is mounted?",
+      body: [
+        "componentDidMount",
+        "componentDidUpdate",
+        "componentWillUnmount",
+        "render",
+      ],
+      correct: "componentDidMount",
+    },
+    {
+      id: 3,
+      type: "checkbox",
+      title: "Which of the following are React state hooks?",
+      body: ["useState", "useEffect", "useContext", "useReducer"],
+      correct: ["useState", "useReducer"],
+    },
+    {
+      id: 4,
+      type: "text-input",
+      title: "JSX allows writing **** in JavaScript",
+      body: "",
+      correct: "HTML",
+    },
+    {
+      id: 5,
+      type: "selection",
+      title:
+        "Which of the following is NOT a valid way to handle forms in React?",
+      body: [
+        "Controlled Components",
+        "Uncontrolled Components",
+        "Refs",
+        "Stateful Components",
+      ],
+      correct: "Stateful Components",
+    },
+    {
+      id: 6,
+      type: "checkbox",
+      title: "Which of the following are React component lifecycle methods?",
+      body: [
+        "constructor",
+        "componentDidMount",
+        "render",
+        "componentWillUnmount",
+      ],
+      correct: ["componentDidMount", "componentWillUnmount"],
+    },
+    {
+      id: 7,
+      type: "text-input",
+      title: "React is a JavaScript *****",
+      body: "",
+      correct: "Library",
+    },
+    {
+      id: 8,
+      type: "selection",
+      title: "Which method is used to update the state in a React component?",
+      body: ["setState", "updateState", "changeState", "modifyState"],
+      correct: "setState",
+    },
+    {
+      id: 9,
+      type: "checkbox",
+      title: "Which of the following are React component patterns?",
+      body: [
+        "Higher-Order Components",
+        "Render Props",
+        "Container Components",
+        "Functional Components",
+      ],
+      correct: [
+        "Higher-Order Components",
+        "Render Props",
+        "Functional Components",
+      ],
+    },
+    {
+      id: 10,
+      type: "text-input",
+      title:
+        "**** help React identify which items have changed, are added, or are removed.",
+      body: "",
+      correct: "Keys",
+    },
+  ],
+  [
+    {
+      id: 1,
+      type: "text-input",
+      title:
+        "Node.js is a JavaScript runtime built on Chrome's ***** Javascript engine",
+      body: "",
+      correct: "V8",
+      topic: "Node.js",
+    },
+    {
+      id: 2,
+      type: "selection",
+      title: "Which of the following is NOT a core module in Node.js?",
+      body: ["http", "fs", "path", "fetch"],
+      correct: "fetch",
+    },
+    {
+      id: 3,
+      type: "checkbox",
+      title: "Which of the following are Node.js package managers?",
+      body: ["npm", "yarn", "pip", "npx"],
+      correct: ["npm", "yarn", "npx"],
+    },
+    {
+      id: 4,
+      type: "text-input",
+      title: "package.json file is used to manage project *******.",
+      body: "",
+      correct: "dependencies.",
+    },
+    {
+      id: 5,
+      type: "selection",
+      title:
+        "Which of the following is used to handle asynchronous operations in Node.js?",
+      body: ["callbacks", "promises", "async/await", "all of the above"],
+      correct: "all of the above",
+    },
+    {
+      id: 6,
+      type: "checkbox",
+      title: "Which of the following are Node.js frameworks?",
+      body: ["Express", "Meteor", "Django", "Koa"],
+      correct: ["Express", "Meteor", "Koa"],
+    },
+    {
+      id: 7,
+      type: "text-input",
+      title:
+        "The **** object provides variables and functions that are available anywhere in the application.",
+      body: "",
+      correct: "Global",
+    },
+    {
+      id: 8,
+      type: "selection",
+      title: "Which method is used to include modules in Node.js?",
+      body: ["require()", "import", "use()", "add()"],
+      correct: "require()",
+    },
+    {
+      id: 9,
+      type: "checkbox",
+      title: "Which of the following are valid Node.js event emitters?",
+      body: ["EventEmitter", "fs", "http", "stream"],
+      correct: ["EventEmitter", "fs", "http"],
+    },
+    {
+      id: 10,
+      type: "text-input",
+      title:
+        "The process object provides information and control over the current Node.js *******.",
+      body: "",
+      correct: "process",
+    },
+  ],
+  [
+    {
+      id: 1,
+      type: "text-input",
+      title:
+        "Git is a distributed *************** system for tracking changes in source code during software development.",
+      body: "",
+      correct: "version control",
+      topic: "Git",
+    },
+    {
+      id: 2,
+      type: "selection",
+      title: "Which command is used to create a new branch in Git?",
+      body: ["git commit", "git branch", "git checkout", "git clone"],
+      correct: "git branch",
+    },
+    {
+      id: 3,
+      type: "checkbox",
+      title: "Which of the following are valid Git states for a file?",
+      body: ["untracked", "tracked", "modified", "stashed"],
+      correct: ["untracked", "tracked", "modified"],
+    },
+    {
+      id: 4,
+      type: "text-input",
+      title:
+        "A Git ********** is a storage location where a project's history, files, and metadata are stored.",
+      body: "",
+      correct: "repository",
+    },
+    {
+      id: 5,
+      type: "selection",
+      title:
+        "Which command is used to apply changes in staged files to the repository in Git?",
+      body: ["git push", "git commit", "git pull", "git merge"],
+      correct: "git commit",
+    },
+    {
+      id: 6,
+      type: "checkbox",
+      title: "Which of the following are valid Git branching strategies?",
+      body: [
+        "Feature Branching",
+        "Trunk-Based Development",
+        "GitFlow",
+        "Monorepo",
+      ],
+      correct: ["Feature Branching", "Trunk-Based Development", "GitFlow"],
+    },
+    {
+      id: 7,
+      type: "text-input",
+      title:
+        "A Git ***** command combines changes from different branches into one branch.",
+      body: "",
+      correct: "merge",
+    },
+    {
+      id: 8,
+      type: "selection",
+      title: "Which command is used to view the commit history in Git?",
+      body: ["git log", "git status", "git show", "git diff"],
+      correct: "git log",
+    },
+    {
+      id: 9,
+      type: "checkbox",
+      title:
+        "Which of the following are valid Git remote repository hosting services?",
+      body: ["GitHub", "Bitbucket", "GitLab", "Subversion"],
+      correct: ["GitHub", "Bitbucket", "GitLab"],
+    },
+    {
+      id: 10,
+      type: "text-input",
+      title:
+        "A Git **** request is a request to merge changes from one branch into another.",
+      body: "",
+      correct: "pull",
+    },
+  ],
+  [
+    {
+      id: 1,
+      type: "text-input",
+      title: "What is the syntax for declaring an integer variable x in C?",
+      body: "",
+      correct: "int x;",
+      topic: "C lang",
+    },
+    {
+      id: 2,
+      type: "selection",
+      title: "Which of the following is NOT a valid data type in C?",
+      body: ["int", "float", "string", "char"],
+      correct: "string",
+    },
+    {
+      id: 3,
+      type: "checkbox",
+      title: "Which of the following are control structures in C?",
+      body: ["if-else", "for", "while", "switch"],
+      correct: ["if-else", "for", "while", "switch"],
+    },
+    {
+      id: 4,
+      type: "text-input",
+      title: 'What is the output of the following code: printf("%d", 5 / 2);?',
+      body: "",
+      correct: "2",
+    },
+    {
+      id: 5,
+      type: "selection",
+      title: "Which keyword is used to define a function in C?",
+      body: ["def", "function", "void", "return"],
+      correct: "void",
+    },
+    {
+      id: 6,
+      type: "checkbox",
+      title: "Which of the following are valid C operators?",
+      body: ["+", "-", "*", "/", "%"],
+      correct: ["+", "-", "*", "/", "%"],
+    },
+    {
+      id: 7,
+      type: "text-input",
+      title: "What is the result of the expression 'A' == 'a'?",
+      body: "",
+      correct: "false",
+    },
+    {
+      id: 8,
+      type: "selection",
+      title:
+        "Which of the following is used to denote a single-line comment in C?",
+      body: ["//", "/* */", "<!-- -->", "##"],
+      correct: "//",
+    },
+    {
+      id: 9,
+      type: "checkbox",
+      title: "Which of the following are standard C library functions?",
+      body: ["printf()", "scanf()", "strlen()", "toupper()"],
+      correct: ["printf()", "scanf()", "strlen()"],
+    },
+    {
+      id: 10,
+      type: "text-input",
+      title: "What is the result of the expression sizeof(int)?",
+      body: "",
+      correct: "4",
+    },
+  ],
+  [
+    {
+      id: 1,
+      type: "text-input",
+      title: "The primary purpose of Goroutines in Go is ********** execution.",
+      body: "",
+      correct: "Concurrent",
+      topic: "Go lang",
+    },
+    {
+      id: 2,
+      type: "selection",
+      title: "Which of the following is NOT a valid data type in Go?",
+      body: ["int", "float", "string", "char"],
+      correct: "char",
+    },
+    {
+      id: 3,
+      type: "checkbox",
+      title: "Which of the following are control structures in Go?",
+      body: ["if-else", "for", "while", "switch"],
+      correct: ["if-else", "for", "switch"],
+    },
+    {
+      id: 4,
+      type: "text-input",
+      title: "What is the output of the following code: fmt.Println(5 / 2)?",
+      body: "",
+      correct: "2",
+    },
+    {
+      id: 5,
+      type: "selection",
+      title: "Which keyword is used to define a function in Go?",
+      body: ["def", "function", "void", "func"],
+      correct: "func",
+    },
+    {
+      id: 6,
+      type: "checkbox",
+      title: "Which of the following are valid Go operators?",
+      body: ["+", "-", "*", "/", "%"],
+      correct: ["+", "-", "*", "/", "%"],
+    },
+    {
+      id: 7,
+      type: "text-input",
+      title: "What is the result of the expression 'A' == 'a' in Go?",
+      body: "",
+      correct: "false",
+    },
+    {
+      id: 8,
+      type: "selection",
+      title:
+        "Which of the following is used to denote a single-line comment in Go?",
+      body: ["//", "/* */", "<!-- -->", "##"],
+      correct: "//",
+    },
+    {
+      id: 9,
+      type: "checkbox",
+      title: "Which of the following are standard Go library functions?",
+      body: [
+        "fmt.Println()",
+        "fmt.Scanf()",
+        "strings.ToUpper()",
+        "math.Sqrt()",
+      ],
+      correct: [
+        "fmt.Println()",
+        "fmt.Scanf()",
+        "strings.ToUpper()",
+        "math.Sqrt()",
+      ],
+    },
+    {
+      id: 10,
+      type: "text-input",
+      title: 'What is the result of the expression len("gopher")?',
+      body: "",
+      correct: "6",
+    },
+  ],
+  [
+    {
+      id: 1,
+      type: "text-input",
+      title: "What is the default display property of a <div> element in CSS?",
+      body: "",
+      correct: "block",
+      topic: "Various",
+    },
+    {
+      id: 2,
+      type: "selection",
+      title: "Which of the following is NOT a valid HTTP status code?",
+      body: ["200", "404", "503", "300"],
+      correct: "300",
+    },
+    {
+      id: 3,
+      type: "checkbox",
+      title: "Which of the following are CSS preprocessor languages?",
+      body: ["Sass", "Less", "HTML", "Stylus"],
+      correct: ["Sass", "Less", "Stylus"],
+    },
+    {
+      id: 4,
+      type: "text-input",
+      title: "The purpose of JavaScript is to make web pabes ***********.",
+      body: "",
+      correct: "interactive",
+    },
+    {
+      id: 5,
+      type: "selection",
+      title: "Which of the following is NOT a valid HTTP method?",
+      body: ["GET", "POST", "UPDATE", "DELETE"],
+      correct: "UPDATE",
+    },
+    {
+      id: 6,
+      type: "checkbox",
+      title: "Which of the following are front-end JavaScript frameworks?",
+      body: ["React", "Vue", "Angular", "Express"],
+      correct: ["React", "Vue", "Angular"],
+    },
+    {
+      id: 7,
+      type: "selection",
+      title:
+        "Which CSS property is used to change the text color of an element?",
+      body: ["color", "text-color", "font-color", "text-style"],
+      correct: "color",
+    },
+    {
+      id: 8,
+      type: "selection",
+      title: "Which of the following is NOT a valid MIME type?",
+      body: ["text/html", "application/json", "image/xml", "audio/mpeg"],
+      correct: "image/xml",
+    },
+    {
+      id: 9,
+      type: "checkbox",
+      title:
+        "Which of the following are commonly used back-end programming languages for web development?",
+      body: ["Python", "Ruby", "Java", "MongoDB"],
+      correct: ["Python", "Ruby", "Java"],
+    },
+    {
+      id: 10,
+      type: "checkbox",
+      title: "Which of the following are valid HTML form input types?",
+      body: ["text", "button", "image", "select"],
+      correct: ["text", "button", "image"],
+    },
+  ],
 ];
-

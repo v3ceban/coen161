@@ -1,9 +1,11 @@
 // Constants
 const dateField = document.querySelector("#date");
-const date = new Date().toLocaleDateString();
-// const lastDigit = date.charAt(date.length - 6); //this should work for until year 10000. will fix it when the time comes
+const currentDate = new Date();
+const date = currentDate.toLocaleDateString();
+const lastDigit = currentDate.getDate() % 10;
 
 const buttons = document.querySelectorAll("button");
+const subject = document.querySelector("#subject");
 
 const correctScore = document.querySelector("#correct");
 const incorrectScore = document.querySelector("#incorrect");
@@ -13,25 +15,25 @@ const questionNum = document.querySelector("#question-number");
 const questionText = document.querySelector("#question-text");
 const questionBody = document.querySelector("#question-body");
 
-
 // Variables
 let gameStarted = false;
 let currentQuestion = 0;
-let currentTopic = 0;
+let currentTopic = lastDigit;
+let timeoutID;
 
 // Functions
 const nextQuestion = () => {
   currentQuestion++;
-  if (currentQuestion >= questions[currentTopic].length) { //eslint-disable-line
+  //eslint-disable-next-line
+  if (currentQuestion >= questions[currentTopic].length) {
     gameStarted = false;
     // stopGame();
   } else {
     setQuestion(questions[currentTopic], currentQuestion); //eslint-disable-line
   }
-}
+};
 
 const updateScore = (correct) => {
-  alert(correct);
   if (correct) {
     correctScore.textContent++;
     points.textContent++;
@@ -39,11 +41,15 @@ const updateScore = (correct) => {
     incorrectScore.textContent++;
   }
   nextQuestion();
-}
+};
 
 const evaluateAnswer = (answer, correct) => {
   if (!gameStarted) {
     return undefined;
+  }
+
+  if (answer === null) {
+    return false;
   }
 
   if (Array.isArray(answer)) {
@@ -57,12 +63,12 @@ const evaluateAnswer = (answer, correct) => {
     }
     correctScore.textContent++;
   } else {
-    if (answer !== correct) {
+    if (answer.toLowerCase() !== correct.toLowerCase()) {
       return false;
     }
   }
   return true;
-}
+};
 
 const setQuestion = (questionSet, index) => {
   const question = questionSet[index];
@@ -72,7 +78,9 @@ const setQuestion = (questionSet, index) => {
 
   const submit = document.createElement("button");
   submit.setAttribute("type", "submit");
-  submit.textContent = "Submit";
+  const text = document.createElement("span");
+  text.textContent = "Submit";
+  submit.appendChild(text);
 
   if (question.type === "text-input") {
     const input = document.createElement("input");
@@ -80,6 +88,7 @@ const setQuestion = (questionSet, index) => {
     questionBody.appendChild(input);
     submit.addEventListener("click", (e) => {
       e.preventDefault();
+      clearTimeout(timeoutID);
       if (gameStarted) {
         updateScore(evaluateAnswer(input.value, question.correct));
       }
@@ -98,8 +107,18 @@ const setQuestion = (questionSet, index) => {
     });
     submit.addEventListener("click", (e) => {
       e.preventDefault();
+      clearTimeout(timeoutID);
       if (gameStarted) {
-        updateScore(evaluateAnswer(questionBody.querySelector("input[name=answer]:checked").value, question.correct));
+        const checkedRadioButton = questionBody.querySelector(
+          "input[name=answer]:checked",
+        );
+        let selectedValue;
+        if (checkedRadioButton) {
+          selectedValue = checkedRadioButton.value;
+        } else {
+          selectedValue = null;
+        }
+        updateScore(evaluateAnswer(selectedValue, question.correct));
       }
     });
   }
@@ -116,18 +135,26 @@ const setQuestion = (questionSet, index) => {
     });
     submit.addEventListener("click", (e) => {
       e.preventDefault();
+      clearTimeout(timeoutID);
       const checked = [];
-      questionBody.querySelectorAll("input[name=answer]:checked").forEach((input) => {
-        checked.push(input.value);
-      });
+      questionBody
+        .querySelectorAll("input[name=answer]:checked")
+        .forEach((input) => {
+          checked.push(input.value);
+        });
       if (gameStarted) {
         updateScore(evaluateAnswer(checked, question.correct));
       }
     });
   }
 
+  timeoutID = setTimeout(() => {
+    submit.style.animation = "none";
+    nextQuestion();
+  }, 3000);
+
   questionBody.appendChild(submit);
-}
+};
 
 const triggerClick = (button) => {
   switch (button) {
@@ -150,6 +177,7 @@ const triggerClick = (button) => {
     case "Skip":
       if (gameStarted) {
         points.textContent--;
+        clearTimeout(timeoutID);
         nextQuestion();
       }
       break;
@@ -164,3 +192,4 @@ buttons.forEach((button) => {
 });
 
 dateField.textContent = `Today's date: ${date}`;
+subject.textContent = questions[currentTopic][0].topic; //eslint-disable-line

@@ -1,1 +1,156 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #4d4d4d;
+  margin-bottom: 10px;
+}
+
+header img {
+  max-width: 100%;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+main section {
+  margin-bottom: 30px;
+}
+
+main section:nth-of-type(2) p,
+main form * {
+  animation: fadeIn 0.5s ease;
+}
+
+main section:last-of-type {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+main section:last-of-type button:nth-of-type(1) {
+  background-color: #007bff;
+}
+
+main section:last-of-type button:nth-of-type(2) {
+  background-color: #ffc107;
+}
+
+main section:last-of-type button:nth-of-type(3) {
+  background-color: #dc3545;
+}
+
+main form {
+  display: grid;
+  gap: 20px;
+}
+
+main form button {
+  grid-row: 0;
+}
+
+button {
+  color: #fff;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+button:hover,
+input:hover {
+  box-shadow:
+    2px 2px 4px #b8b8b8,
+    -2px -2px 4px #ffffff;
+}
+
+button[type="submit"] {
+  font-size: 1rem;
+  background-color: #4d4d4d;
+  position: relative;
+  overflow: hidden;
+}
+
+button[type="submit"] span {
+  position: relative;
+  z-index: 2;
+}
+
+button[type="submit"]::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: #28a745;
+  animation: fillAnimation 3s linear forwards;
+}
+
+input#text-answer {
+  line-height: 1.5rem;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 5px;
+  box-shadow:
+    inset 2px 2px 4px #b8b8b8,
+    inset -2px -2px 4px #ffffff;
+  border-radius: 5px;
+}
+
+footer {
+  text-align: center;
+  padding-top: 20px;
+  color: #666;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fillAnimation {
+  0% {
+    width: 0;
+    background-color: #28a745;
+  }
+
+  100% {
+    width: 100%;
+    background-color: #dc3545;
+  }
+}

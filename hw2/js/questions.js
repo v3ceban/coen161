@@ -15,6 +15,7 @@ const questions = [
       title: "Which of the following is NOT a JavaScript data type?",
       body: ["String", "Boolean", "Float", "Number"],
       correct: "Float",
+      topic: "JavaScript",
     },
     {
       id: 3,
@@ -22,6 +23,7 @@ const questions = [
       title: "Which of the following are JavaScript frameworks?",
       body: ["Angular", "React", "Vue", "jQuery"],
       correct: ["Angular", "React", "Vue"],
+      topic: "JavaScript",
     },
     {
       id: 4,
@@ -29,6 +31,7 @@ const questions = [
       title: "What is the output of the following code: console.log(2 + '2')?",
       body: "",
       correct: "22",
+      topic: "JavaScript",
     },
     {
       id: 5,
@@ -36,6 +39,7 @@ const questions = [
       title: "Which keyword is used to exit a loop in JavaScript?",
       body: ["break", "continue", "return", "exit"],
       correct: "break",
+      topic: "JavaScript",
     },
     {
       id: 6,
@@ -43,6 +47,7 @@ const questions = [
       title: "Which of the following are JavaScript array methods?",
       body: ["push()", "pop()", "slice()", "splice()"],
       correct: ["push()", "pop()", "slice()", "splice()"],
+      topic: "JavaScript",
     },
     {
       id: 7,
@@ -50,6 +55,7 @@ const questions = [
       title: "What is the result of the expression '5' == 5?",
       body: "",
       correct: "true",
+      topic: "JavaScript",
     },
     {
       id: 8,
@@ -57,6 +63,7 @@ const questions = [
       title: "Which of the following is used to add a comment in JavaScript?",
       body: ["//", "/* */", "<!-- -->", "##"],
       correct: "//",
+      topic: "JavaScript",
     },
     {
       id: 9,
@@ -64,6 +71,7 @@ const questions = [
       title: "Which of the following are JavaScript string methods?",
       body: ["length()", "toUpperCase()", "trim()", "concat()"],
       correct: ["toUpperCase()", "trim()", "concat()"],
+      topic: "JavaScript",
     },
     {
       id: 10,
@@ -71,6 +79,7 @@ const questions = [
       title: "What is the result of the expression NaN === NaN?",
       body: "",
       correct: "false",
+      topic: "JavaScript",
     },
   ],
   [
@@ -88,6 +97,7 @@ const questions = [
       title: "Which of the following is NOT a PHP data type?",
       body: ["String", "Boolean", "Float", "Integer"],
       correct: "Float",
+      topic: "PHP",
     },
     {
       id: 3,
@@ -95,6 +105,7 @@ const questions = [
       title: "Which of the following are PHP frameworks?",
       body: ["Laravel", "Symfony", "CodeIgniter", "Django"],
       correct: ["Laravel", "Symfony", "CodeIgniter"],
+      topic: "PHP",
     },
     {
       id: 4,
@@ -102,6 +113,7 @@ const questions = [
       title: "What is the output of the following code: echo 'Hello, World!';?",
       body: "",
       correct: "Hello, World!",
+      topic: "PHP",
     },
     {
       id: 5,
@@ -109,6 +121,7 @@ const questions = [
       title: "Which keyword is used to exit a loop in PHP?",
       body: ["break", "continue", "return", "exit"],
       correct: "break",
+      topic: "PHP",
     },
     {
       id: 6,
@@ -121,6 +134,7 @@ const questions = [
         "array_slice()",
         "array_splice()",
       ],
+      topic: "PHP",
     },
     {
       id: 7,
@@ -128,6 +142,7 @@ const questions = [
       title: "What is the result of the expression '5' == 5 in PHP?",
       body: "",
       correct: "true",
+      topic: "PHP",
     },
     {
       id: 8,
@@ -135,6 +150,7 @@ const questions = [
       title: "Which of the following is used to add a comment in PHP?",
       body: ["//", "/* */", "<!-- -->", "##"],
       correct: "/* */",
+      topic: "PHP",
     },
     {
       id: 9,
@@ -142,6 +158,7 @@ const questions = [
       title: "Which of the following are PHP string functions?",
       body: ["strlen()", "strtoupper()", "trim()", "concat()"],
       correct: ["strlen()", "strtoupper()", "trim()"],
+      topic: "PHP",
     },
     {
       id: 10,
@@ -149,6 +166,7 @@ const questions = [
       title: "What is the result of the expression 10 % 3 in PHP?",
       body: "",
       correct: "1",
+      topic: "PHP",
     },
   ],
   [
@@ -166,6 +184,7 @@ const questions = [
       title: "What infromation is contained in the <head> tag in HTML?",
       body: "",
       correct: "meta-information",
+      topic: "HTML",
     },
     {
       id: 3,
@@ -174,6 +193,7 @@ const questions = [
         "Which attribute is used to specify the URL of an external script file in HTML?",
       body: ["src", "href", "link", "script"],
       correct: "src",
+      topic: "HTML",
     },
     {
       id: 4,
@@ -182,6 +202,7 @@ const questions = [
         "Alt attribute in the <img> tag provides ******** text for an image.",
       body: "",
       correct: "Alternative",
+      topic: "HTML",
     },
     {
       id: 5,
@@ -189,6 +210,7 @@ const questions = [
       title: "Which tag is used to define a hyperlink in HTML?",
       body: ["<a>", "<link>", "<href>", "<url>"],
       correct: "<a>",
+      topic: "HTML",
     },
     {
       id: 6,
@@ -196,6 +218,7 @@ const questions = [
       title: "Which of the following are valid HTML heading tags?",
       body: ["<h1>", "<h2>", "<h3>", "<h4>"],
       correct: ["<h1>", "<h2>", "<h3>", "<h4>"],
+      topic: "HTML",
     },
     {
       id: 7,
@@ -204,6 +227,7 @@ const questions = [
         "Should you use an <h3> tag if you don't have an <h2> tag in your page?",
       body: "",
       correct: "No",
+      topic: "HTML",
     },
     {
       id: 8,
@@ -211,6 +235,7 @@ const questions = [
       title: "Which of the following is NOT a valid HTML tag?",
       body: ["<div>", "<span>", "<header>", "<paragraph>"],
       correct: "<paragraph>",
+      topic: "HTML",
     },
     {
       id: 9,
@@ -218,6 +243,7 @@ const questions = [
       title: "What does HTML stand for?",
       body: "",
       correct: "HyperText Markup Language",
+      topic: "HTML",
     },
     {
       id: 10,
@@ -225,6 +251,7 @@ const questions = [
       title: "Which of the following are valid HTML input types?",
       body: ["text", "number", "boolean", "email"],
       correct: ["text", "number", "email"],
+      topic: "HTML",
     },
   ],
   [
@@ -242,6 +269,7 @@ const questions = [
       title: "What does CSS stand for?",
       body: "",
       correct: "Cascading Style Sheets",
+      topic: "CSS",
     },
     {
       id: 3,
@@ -250,6 +278,7 @@ const questions = [
         "What property would you use to control the display of an element?",
       body: "",
       correct: "Display",
+      topic: "CSS",
     },
     {
       id: 4,
@@ -257,6 +286,7 @@ const questions = [
       title: "Padding property controls the spacing ****** the element",
       body: "",
       correct: "Inside",
+      topic: "CSS",
     },
     {
       id: 5,
@@ -264,6 +294,7 @@ const questions = [
       title: "Which of the following are CSS selectors?",
       body: ["class", "id", "tag", "attribute"],
       correct: ["class", "id", "tag"],
+      topic: "CSS",
     },
     {
       id: 6,
@@ -271,6 +302,7 @@ const questions = [
       title: "Which of the following are valid CSS color values?",
       body: ["red", "#000000", "rgb(255, 255, 255)", "none"],
       correct: ["red", "#000000", "rgb(255, 255, 255)"],
+      topic: "CSS",
     },
     {
       id: 7,
@@ -278,6 +310,7 @@ const questions = [
       title: "Margin property controls the spacing ****** the element",
       body: "",
       correct: "Around",
+      topic: "CSS",
     },
     {
       id: 8,
@@ -286,6 +319,7 @@ const questions = [
         "Which property is used to change the background color of an element in CSS?",
       body: ["color", "background-color", "bg-color", "background-image"],
       correct: "background-color",
+      topic: "CSS",
     },
     {
       id: 9,
@@ -293,6 +327,7 @@ const questions = [
       title: "Which of the following is NOT a valid CSS property?",
       body: ["margin", "padding", "border", "spacing"],
       correct: "spacing",
+      topic: "CSS",
     },
     {
       id: 10,
@@ -301,6 +336,7 @@ const questions = [
         "Which property is used to change the font size of an element in CSS?",
       body: ["font-size", "text-size", "font-style", "text-style"],
       correct: "font-size",
+      topic: "CSS",
     },
   ],
   [
@@ -324,6 +360,7 @@ const questions = [
         "render",
       ],
       correct: "componentDidMount",
+      topic: "React",
     },
     {
       id: 3,
@@ -331,6 +368,7 @@ const questions = [
       title: "Which of the following are React state hooks?",
       body: ["useState", "useEffect", "useContext", "useReducer"],
       correct: ["useState", "useReducer"],
+      topic: "React",
     },
     {
       id: 4,
@@ -338,6 +376,7 @@ const questions = [
       title: "JSX allows writing **** in JavaScript",
       body: "",
       correct: "HTML",
+      topic: "React",
     },
     {
       id: 5,
@@ -351,6 +390,7 @@ const questions = [
         "Stateful Components",
       ],
       correct: "Stateful Components",
+      topic: "React",
     },
     {
       id: 6,
@@ -363,6 +403,7 @@ const questions = [
         "componentWillUnmount",
       ],
       correct: ["componentDidMount", "componentWillUnmount"],
+      topic: "React",
     },
     {
       id: 7,
@@ -370,6 +411,7 @@ const questions = [
       title: "React is a JavaScript *****",
       body: "",
       correct: "Library",
+      topic: "React",
     },
     {
       id: 8,
@@ -377,6 +419,7 @@ const questions = [
       title: "Which method is used to update the state in a React component?",
       body: ["setState", "updateState", "changeState", "modifyState"],
       correct: "setState",
+      topic: "React",
     },
     {
       id: 9,
@@ -393,6 +436,7 @@ const questions = [
         "Render Props",
         "Functional Components",
       ],
+      topic: "React",
     },
     {
       id: 10,
@@ -401,6 +445,7 @@ const questions = [
         "**** help React identify which items have changed, are added, or are removed.",
       body: "",
       correct: "Keys",
+      topic: "React",
     },
   ],
   [
@@ -419,6 +464,7 @@ const questions = [
       title: "Which of the following is NOT a core module in Node.js?",
       body: ["http", "fs", "path", "fetch"],
       correct: "fetch",
+      topic: "Node.js",
     },
     {
       id: 3,
@@ -426,6 +472,7 @@ const questions = [
       title: "Which of the following are Node.js package managers?",
       body: ["npm", "yarn", "pip", "npx"],
       correct: ["npm", "yarn", "npx"],
+      topic: "Node.js",
     },
     {
       id: 4,
@@ -433,6 +480,7 @@ const questions = [
       title: "package.json file is used to manage project *******.",
       body: "",
       correct: "dependencies.",
+      topic: "Node.js",
     },
     {
       id: 5,
@@ -441,6 +489,7 @@ const questions = [
         "Which of the following is used to handle asynchronous operations in Node.js?",
       body: ["callbacks", "promises", "async/await", "all of the above"],
       correct: "all of the above",
+      topic: "Node.js",
     },
     {
       id: 6,
@@ -448,6 +497,7 @@ const questions = [
       title: "Which of the following are Node.js frameworks?",
       body: ["Express", "Meteor", "Django", "Koa"],
       correct: ["Express", "Meteor", "Koa"],
+      topic: "Node.js",
     },
     {
       id: 7,
@@ -456,6 +506,7 @@ const questions = [
         "The **** object provides variables and functions that are available anywhere in the application.",
       body: "",
       correct: "Global",
+      topic: "Node.js",
     },
     {
       id: 8,
@@ -463,6 +514,7 @@ const questions = [
       title: "Which method is used to include modules in Node.js?",
       body: ["require()", "import", "use()", "add()"],
       correct: "require()",
+      topic: "Node.js",
     },
     {
       id: 9,
@@ -470,6 +522,7 @@ const questions = [
       title: "Which of the following are valid Node.js event emitters?",
       body: ["EventEmitter", "fs", "http", "stream"],
       correct: ["EventEmitter", "fs", "http"],
+      topic: "Node.js",
     },
     {
       id: 10,
@@ -478,6 +531,7 @@ const questions = [
         "The process object provides information and control over the current Node.js *******.",
       body: "",
       correct: "process",
+      topic: "Node.js",
     },
   ],
   [
@@ -496,6 +550,7 @@ const questions = [
       title: "Which command is used to create a new branch in Git?",
       body: ["git commit", "git branch", "git checkout", "git clone"],
       correct: "git branch",
+      topic: "Git",
     },
     {
       id: 3,
@@ -503,6 +558,7 @@ const questions = [
       title: "Which of the following are valid Git states for a file?",
       body: ["untracked", "tracked", "modified", "stashed"],
       correct: ["untracked", "tracked", "modified"],
+      topic: "Git",
     },
     {
       id: 4,
@@ -511,6 +567,7 @@ const questions = [
         "A Git ********** is a storage location where a project's history, files, and metadata are stored.",
       body: "",
       correct: "repository",
+      topic: "Git",
     },
     {
       id: 5,
@@ -519,6 +576,7 @@ const questions = [
         "Which command is used to apply changes in staged files to the repository in Git?",
       body: ["git push", "git commit", "git pull", "git merge"],
       correct: "git commit",
+      topic: "Git",
     },
     {
       id: 6,
@@ -531,6 +589,7 @@ const questions = [
         "Monorepo",
       ],
       correct: ["Feature Branching", "Trunk-Based Development", "GitFlow"],
+      topic: "Git",
     },
     {
       id: 7,
@@ -539,6 +598,7 @@ const questions = [
         "A Git ***** command combines changes from different branches into one branch.",
       body: "",
       correct: "merge",
+      topic: "Git",
     },
     {
       id: 8,
@@ -546,6 +606,7 @@ const questions = [
       title: "Which command is used to view the commit history in Git?",
       body: ["git log", "git status", "git show", "git diff"],
       correct: "git log",
+      topic: "Git",
     },
     {
       id: 9,
@@ -554,6 +615,7 @@ const questions = [
         "Which of the following are valid Git remote repository hosting services?",
       body: ["GitHub", "Bitbucket", "GitLab", "Subversion"],
       correct: ["GitHub", "Bitbucket", "GitLab"],
+      topic: "Git",
     },
     {
       id: 10,
@@ -562,6 +624,7 @@ const questions = [
         "A Git **** request is a request to merge changes from one branch into another.",
       body: "",
       correct: "pull",
+      topic: "Git",
     },
   ],
   [
@@ -579,6 +642,7 @@ const questions = [
       title: "Which of the following is NOT a valid data type in C?",
       body: ["int", "float", "string", "char"],
       correct: "string",
+      topic: "C lang",
     },
     {
       id: 3,
@@ -586,6 +650,7 @@ const questions = [
       title: "Which of the following are control structures in C?",
       body: ["if-else", "for", "while", "switch"],
       correct: ["if-else", "for", "while", "switch"],
+      topic: "C lang",
     },
     {
       id: 4,
@@ -593,6 +658,7 @@ const questions = [
       title: 'What is the output of the following code: printf("%d", 5 / 2);?',
       body: "",
       correct: "2",
+      topic: "C lang",
     },
     {
       id: 5,
@@ -600,6 +666,7 @@ const questions = [
       title: "Which keyword is used to define a function in C?",
       body: ["def", "function", "void", "return"],
       correct: "void",
+      topic: "C lang",
     },
     {
       id: 6,
@@ -607,6 +674,7 @@ const questions = [
       title: "Which of the following are valid C operators?",
       body: ["+", "-", "*", "/", "%"],
       correct: ["+", "-", "*", "/", "%"],
+      topic: "C lang",
     },
     {
       id: 7,
@@ -614,6 +682,7 @@ const questions = [
       title: "What is the result of the expression 'A' == 'a'?",
       body: "",
       correct: "false",
+      topic: "C lang",
     },
     {
       id: 8,
@@ -622,6 +691,7 @@ const questions = [
         "Which of the following is used to denote a single-line comment in C?",
       body: ["//", "/* */", "<!-- -->", "##"],
       correct: "//",
+      topic: "C lang",
     },
     {
       id: 9,
@@ -629,6 +699,7 @@ const questions = [
       title: "Which of the following are standard C library functions?",
       body: ["printf()", "scanf()", "strlen()", "toupper()"],
       correct: ["printf()", "scanf()", "strlen()"],
+      topic: "C lang",
     },
     {
       id: 10,
@@ -636,6 +707,7 @@ const questions = [
       title: "What is the result of the expression sizeof(int)?",
       body: "",
       correct: "4",
+      topic: "C lang",
     },
   ],
   [
@@ -653,6 +725,7 @@ const questions = [
       title: "Which of the following is NOT a valid data type in Go?",
       body: ["int", "float", "string", "char"],
       correct: "char",
+      topic: "Go lang",
     },
     {
       id: 3,
@@ -660,6 +733,7 @@ const questions = [
       title: "Which of the following are control structures in Go?",
       body: ["if-else", "for", "while", "switch"],
       correct: ["if-else", "for", "switch"],
+      topic: "Go lang",
     },
     {
       id: 4,
@@ -667,6 +741,7 @@ const questions = [
       title: "What is the output of the following code: fmt.Println(5 / 2)?",
       body: "",
       correct: "2",
+      topic: "Go lang",
     },
     {
       id: 5,
@@ -674,6 +749,7 @@ const questions = [
       title: "Which keyword is used to define a function in Go?",
       body: ["def", "function", "void", "func"],
       correct: "func",
+      topic: "Go lang",
     },
     {
       id: 6,
@@ -681,6 +757,7 @@ const questions = [
       title: "Which of the following are valid Go operators?",
       body: ["+", "-", "*", "/", "%"],
       correct: ["+", "-", "*", "/", "%"],
+      topic: "Go lang",
     },
     {
       id: 7,
@@ -688,6 +765,7 @@ const questions = [
       title: "What is the result of the expression 'A' == 'a' in Go?",
       body: "",
       correct: "false",
+      topic: "Go lang",
     },
     {
       id: 8,
@@ -696,6 +774,7 @@ const questions = [
         "Which of the following is used to denote a single-line comment in Go?",
       body: ["//", "/* */", "<!-- -->", "##"],
       correct: "//",
+      topic: "Go lang",
     },
     {
       id: 9,
@@ -713,6 +792,7 @@ const questions = [
         "strings.ToUpper()",
         "math.Sqrt()",
       ],
+      topic: "Go lang",
     },
     {
       id: 10,
@@ -720,6 +800,7 @@ const questions = [
       title: 'What is the result of the expression len("gopher")?',
       body: "",
       correct: "6",
+      topic: "Go lang",
     },
   ],
   [
@@ -729,7 +810,7 @@ const questions = [
       title: "What is the default display property of a <div> element in CSS?",
       body: "",
       correct: "block",
-      topic: "Various",
+      topic: "Various Web Dev",
     },
     {
       id: 2,
@@ -737,6 +818,7 @@ const questions = [
       title: "Which of the following is NOT a valid HTTP status code?",
       body: ["200", "404", "503", "300"],
       correct: "300",
+      topic: "Various Web Dev",
     },
     {
       id: 3,
@@ -744,13 +826,15 @@ const questions = [
       title: "Which of the following are CSS preprocessor languages?",
       body: ["Sass", "Less", "HTML", "Stylus"],
       correct: ["Sass", "Less", "Stylus"],
+      topic: "Various Web Dev",
     },
     {
       id: 4,
       type: "text-input",
-      title: "The purpose of JavaScript is to make web pabes ***********.",
+      title: "The purpose of JavaScript is to make web pages ***********.",
       body: "",
       correct: "interactive",
+      topic: "Various Web Dev",
     },
     {
       id: 5,
@@ -758,6 +842,7 @@ const questions = [
       title: "Which of the following is NOT a valid HTTP method?",
       body: ["GET", "POST", "UPDATE", "DELETE"],
       correct: "UPDATE",
+      topic: "Various Web Dev",
     },
     {
       id: 6,
@@ -765,6 +850,7 @@ const questions = [
       title: "Which of the following are front-end JavaScript frameworks?",
       body: ["React", "Vue", "Angular", "Express"],
       correct: ["React", "Vue", "Angular"],
+      topic: "Various Web Dev",
     },
     {
       id: 7,
@@ -773,6 +859,7 @@ const questions = [
         "Which CSS property is used to change the text color of an element?",
       body: ["color", "text-color", "font-color", "text-style"],
       correct: "color",
+      topic: "Various Web Dev",
     },
     {
       id: 8,
@@ -780,6 +867,7 @@ const questions = [
       title: "Which of the following is NOT a valid MIME type?",
       body: ["text/html", "application/json", "image/xml", "audio/mpeg"],
       correct: "image/xml",
+      topic: "Various Web Dev",
     },
     {
       id: 9,
@@ -788,6 +876,7 @@ const questions = [
         "Which of the following are commonly used back-end programming languages for web development?",
       body: ["Python", "Ruby", "Java", "MongoDB"],
       correct: ["Python", "Ruby", "Java"],
+      topic: "Various Web Dev",
     },
     {
       id: 10,
@@ -795,6 +884,7 @@ const questions = [
       title: "Which of the following are valid HTML form input types?",
       body: ["text", "button", "image", "select"],
       correct: ["text", "button", "image"],
+      topic: "Various Web Dev",
     },
   ],
 ];

@@ -279,33 +279,11 @@ footer {
 
 .overlay .new-topic-selection {
   font-size: 1.2rem;
+  grid-column: 2/3;
 }
 
-@media screen and (min-width: 300px) {
-  .overlay .new-topic-selection {
-    grid-column: initial;
-  }
-
-  .overlay .statistics {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr;
-    justify-content: space-between;
-  }
-
-  .overlay .statistics h3 {
-    grid-column: span 2;
-  }
-
-  .overlay .statistics .overlay-count:first-of-type {
-    grid-column: 1/2;
-    max-width: 250px;
-  }
-
-  .overlay .statistics .overlay-count:last-of-type {
-    grid-column: 2/3;
-    max-width: 250px;
-  }
+.overlay .statistics {
+  grid-column: 1/2;
 }
 
 .overlay * {

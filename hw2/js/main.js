@@ -51,13 +51,13 @@ const stopGame = () => {
   const message = document.createElement("h2");
   message.textContent = "Good job!";
 
-  const selectPrompt = document.createElement("p");
-  selectPrompt.classList.add("new-topic-selection");
+  const topicSelectionContainer = document.createElement("section");
+
+  const selectPrompt = document.createElement("h3");
   selectPrompt.textContent = "Select a new subject:";
 
   const selectDropdown = document.createElement("select");
   selectDropdown.setAttribute("id", "topicDropdown");
-  selectDropdown.classList.add("new-topic-selection");
   const topics = [
     "JavaScript",
     "PHP",
@@ -77,6 +77,10 @@ const stopGame = () => {
     selectDropdown.appendChild(option);
   });
 
+  topicSelectionContainer.classList.add("new-topic-selection");
+  topicSelectionContainer.appendChild(selectPrompt);
+  topicSelectionContainer.appendChild(selectDropdown);
+
   const submitButton = document.createElement("button");
   submitButton.textContent = "Start";
   submitButton.style.backgroundColor = "#007bff";
@@ -91,8 +95,8 @@ const stopGame = () => {
   });
 
   const exitButton = document.createElement("button");
-  exitButton.textContent = "Cancel";
-  exitButton.style.backgroundColor = "#dc3545";
+  exitButton.textContent = "Repeat";
+  exitButton.style.backgroundColor = "#ff8f00";
   exitButton.style.color = "white";
   exitButton.addEventListener("click", () => {
     main(questions[currentTopic]); //eslint-disable-line
@@ -101,10 +105,9 @@ const stopGame = () => {
 
   overlay.appendChild(message);
   overlay.appendChild(statistics);
-  overlay.appendChild(selectPrompt);
-  overlay.appendChild(selectDropdown);
-  overlay.appendChild(submitButton);
+  overlay.appendChild(topicSelectionContainer);
   overlay.appendChild(exitButton);
+  overlay.appendChild(submitButton);
 
   document.getElementById("container").appendChild(overlay);
 };
@@ -166,6 +169,11 @@ const pauseGame = (correct, timeout, question) => {
   }
   buttons[1].disabled = true;
   submit.addEventListener("click", nextQuestion);
+  // submit.addEventListener("onkeyup", (e) => {
+  //   if (e.key === "Enter") {
+  //     nextQuestion();
+  //   }
+  // });
 };
 
 // This function is called to move to the next question in the game.

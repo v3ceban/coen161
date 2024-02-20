@@ -44,8 +44,8 @@ const stopGame = () => {
   statistics.classList.add("statistics");
   statistics.innerHTML = `
     <h3>Game Statistics</h3>
-    <p>Correct Answers: <span id="correctCount">${correctScore.textContent}</span></p>
-    <p>Incorrect Answers: <span id="incorrectCount">${incorrectScore.textContent}</span></p>
+    <p class="overlay-count">Correct Answers: <span id="correctCount">${correctScore.textContent}</span></p>
+    <p class="overlay-count">Incorrect Answers: <span id="incorrectCount">${incorrectScore.textContent}</span></p>
   `;
 
   const message = document.createElement("h2");
@@ -78,7 +78,9 @@ const stopGame = () => {
   });
 
   const submitButton = document.createElement("button");
-  submitButton.textContent = "Submit";
+  submitButton.textContent = "Start";
+  submitButton.style.backgroundColor = "#007bff";
+  submitButton.style.color = "white";
   submitButton.addEventListener("click", () => {
     const selectedIndex = selectDropdown.value;
     if (selectedIndex >= 0 && selectedIndex < topics.length) {
@@ -89,7 +91,9 @@ const stopGame = () => {
   });
 
   const exitButton = document.createElement("button");
-  exitButton.textContent = "Exit";
+  exitButton.textContent = "Cancel";
+  exitButton.style.backgroundColor = "#dc3545";
+  exitButton.style.color = "white";
   exitButton.addEventListener("click", () => {
     main(questions[currentTopic]); //eslint-disable-line
     document.getElementById("container").removeChild(overlay);

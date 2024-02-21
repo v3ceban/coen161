@@ -169,6 +169,12 @@ const pauseGame = (correct, timeout, question) => {
   }
   buttons[1].disabled = true;
   submit.addEventListener("click", nextQuestion);
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      nextQuestion();
+      document.removeEventListener("keydown", arguments.callee);
+    }
+  });
 };
 
 // This function is called to move to the next question in the game.
@@ -259,6 +265,7 @@ const setQuestion = (questionSet, index) => {
       );
     });
   }
+
   if (question.type === "selection") {
     question.body.forEach((option) => {
       const input = document.createElement("input");
@@ -286,6 +293,7 @@ const setQuestion = (questionSet, index) => {
       );
     });
   }
+
   if (question.type === "checkbox") {
     question.body.forEach((option) => {
       const input = document.createElement("input");
@@ -381,7 +389,7 @@ const shuffleArray = (array) => {
 // or when the game is restarted. It sets up the initial state of the game,
 // including displaying the first question and enabling/disabling buttons accordingly.
 const main = (questions) => {
-  questionText.textContent = "Start the game to see the question";
+  questionText.textContent = "Abandon hope all ye who start the quiz";
   questionBody.innerHTML = "";
   questionNum.textContent = "0/10";
 

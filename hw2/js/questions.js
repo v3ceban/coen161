@@ -86,9 +86,9 @@ const questions = [
     {
       id: 1,
       type: "text-input",
-      title: "What does PHP stand for?",
+      title: "What does PHP stand for? (hint: it's a recursive acronym)",
       body: "",
-      correct: "Hypertext Preprocessor",
+      correct: "PHP Hypertext Preprocessor",
       topic: "PHP",
     },
     {

@@ -169,11 +169,6 @@ const pauseGame = (correct, timeout, question) => {
   }
   buttons[1].disabled = true;
   submit.addEventListener("click", nextQuestion);
-  // submit.addEventListener("onkeyup", (e) => {
-  //   if (e.key === "Enter") {
-  //     nextQuestion();
-  //   }
-  // });
 };
 
 // This function is called to move to the next question in the game.

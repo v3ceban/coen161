@@ -42,6 +42,10 @@ window.addEventListener("scroll", () => {
 //    file and click it to download JSON file.
 
 document.addEventListener("mouseup", handleHighlight);
+// Suport for touch screen devices
+if ('ontouchstart' in document.documentElement) {
+  document.addEventListener("touchend", handleHighlight);
+}
 
 function handleHighlight() {
   let selection = window.getSelection();

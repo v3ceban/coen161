@@ -26,8 +26,7 @@ function updateURL() {
   const newUrl =
     window.location.origin +
     window.location.pathname +
-    "?" +
-    searchParams.toString();
+    (searchedTags.length > 0 ? "?" + searchParams.toString() : "");
   window.history.pushState(null, null, newUrl);
 }
 
@@ -59,8 +58,10 @@ function handleInitialSearch() {
   if (searchTags.length > 0) {
     searchTags.forEach((tag) => {
       const searchInput = tag.toLowerCase();
-      searchedTags.push(searchInput);
-      appendTag(searchInput);
+      if (!searchedTags.includes(searchInput)) {
+        searchedTags.push(searchInput);
+        appendTag(searchInput);
+      }
     });
     performSearch(searchedTags);
   }
@@ -71,21 +72,15 @@ function performSearch(query) {
 
   articles.forEach((article) => {
     const tags = article.querySelectorAll("a.tag");
-    let hasAllTags = true;
+    let hasTags = false;
 
-    query.forEach((tag) => {
-      let tagFound = false;
-      tags.forEach((articleTag) => {
-        if (tag === articleTag.textContent.toLowerCase()) {
-          tagFound = true;
-        }
-      });
-      if (!tagFound) {
-        hasAllTags = false;
+    tags.forEach((articleTag) => {
+      if (query.includes(articleTag.textContent.toLowerCase())) {
+        hasTags = true;
       }
     });
 
-    if (hasAllTags || query.length === 0) {
+    if (hasTags) {
       article.style.display = "block";
     } else {
       article.style.display = "none";
@@ -97,8 +92,10 @@ function performSearch(query) {
 function filterArticles(event) {
   if (event.keyCode === 13) {
     const searchInput = event.target.value.toLowerCase();
-    searchedTags.push(searchInput);
-    appendTag(searchInput);
+    if (!searchedTags.includes(searchInput)) {
+      searchedTags.push(searchInput);
+      appendTag(searchInput);
+    }
     performSearch(searchedTags);
     event.target.value = "";
     updateURL();
@@ -110,8 +107,11 @@ const articleTags = document.querySelectorAll("article ul.tags a.tag");
 articleTags.forEach((tag) => {
   tag.addEventListener("click", (e) => {
     e.preventDefault();
-    searchedTags.push(tag.textContent.toLowerCase());
-    appendTag(tag.textContent.toLowerCase());
+    const searchInput = tag.textContent.toLowerCase();
+    if (!searchedTags.includes(searchInput)) {
+      searchedTags.push(searchInput);
+      appendTag(searchInput);
+    }
     performSearch(searchedTags);
     updateURL();
   });

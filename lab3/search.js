@@ -18,6 +18,19 @@
 
 let searchedTags = [];
 
+function updateURL() {
+  const searchParams = new URLSearchParams();
+  searchedTags.forEach((tag) => {
+    searchParams.append("tag", tag);
+  });
+  const newUrl =
+    window.location.origin +
+    window.location.pathname +
+    "?" +
+    searchParams.toString();
+  window.history.pushState(null, null, newUrl);
+}
+
 function createTag(tag) {
   let newTag = document.createElement("span");
   newTag.classList.add("tag");
@@ -29,6 +42,7 @@ function createTag(tag) {
     }
     newTag.remove();
     performSearch(searchedTags);
+    updateURL();
   });
   return newTag;
 }
@@ -79,7 +93,7 @@ function performSearch(query) {
   });
 }
 
-//eslint-disable-next-line
+// eslint-disable-next-line
 function filterArticles(event) {
   if (event.keyCode === 13) {
     const searchInput = event.target.value.toLowerCase();
@@ -87,18 +101,21 @@ function filterArticles(event) {
     appendTag(searchInput);
     performSearch(searchedTags);
     event.target.value = "";
-
-    const searchParams = new URLSearchParams();
-    searchedTags.forEach((tag) => {
-      searchParams.append("tag", tag);
-    });
-    const newUrl =
-      window.location.origin +
-      window.location.pathname +
-      "?" +
-      searchParams.toString();
-    window.history.pushState(null, null, newUrl);
+    updateURL();
   }
 }
+
+
+const articleTags = document.querySelectorAll("article ul.tags a.tag");
+articleTags.forEach((tag) => {
+  tag.addEventListener("click", (e) => {
+    e.preventDefault();
+    searchedTags.push(tag.textContent.toLowerCase());
+    appendTag(tag.textContent.toLowerCase());
+    performSearch(searchedTags);
+    updateURL();
+  });
+})
+
 
 handleInitialSearch();

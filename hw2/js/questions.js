@@ -317,7 +317,7 @@ const questions = [
       type: "selection",
       title:
         "Which property is used to change the background color of an element in CSS?",
-      body: ["color", "background-color", "bg-color", "background-image"],
+      body: ["bg", "background-color", "bg-color", "background-image"],
       correct: "background-color",
       topic: "CSS",
     },

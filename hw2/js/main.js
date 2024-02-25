@@ -31,6 +31,7 @@ let correctAnswer;
 // It clears the timeout, updates the submit button text to indicate the game is stopped,
 // and displays a message with game statistics.
 // Users can then select a new subject or exit the game.
+
 const stopGame = () => {
   clearTimeout(timeoutID);
   const submit = document.querySelector("#submitButton");
@@ -169,12 +170,6 @@ const pauseGame = (correct, timeout, question) => {
   }
   buttons[1].disabled = true;
   submit.addEventListener("click", nextQuestion);
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-      nextQuestion();
-      document.removeEventListener("keydown", arguments.callee);
-    }
-  });
 };
 
 // This function is called to move to the next question in the game.
@@ -409,6 +404,17 @@ buttons.forEach((button) => {
   button.addEventListener("click", () => {
     triggerClick(button.textContent);
   });
+});
+document.addEventListener("keydown", (e) => {
+  const submit = document.querySelector("#submitButton");
+  if (
+    submit &&
+    e.key === "Enter" &&
+    submit.classList.contains("pause") &&
+    gameStarted
+  ) {
+    nextQuestion();
+  }
 });
 
 main(questions[currentTopic]); //eslint-disable-line

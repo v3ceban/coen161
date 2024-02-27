@@ -28,7 +28,43 @@ function init()
     return;
   }
 
-  echo nl2br("Title: $title\nTags: $tags\n\n$content\n");
+  if (!file_exists("article.html")) {
+    echo "Error: article page does not exist";
+    return;
+  }
+
+  $page = new DOMDocument();
+  $page->loadHTMLFile("article.html");
+
+  $pageTitle = $page->getElementById("top");
+  if (!$pageTitle) {
+    echo "Error: pageTitle element not found";
+    return;
+  } else {
+    $pageTitle->nodeValue = $title;
+  }
+
+  $pageContent = $page->getElementById("content");
+  if (!$pageContent) {
+    echo "Error: pageContent element not found";
+    return;
+  } else {
+    $pageContent->nodeValue = $content;
+  }
+
+  $xpath = new DOMXPath($page);
+  $pageTags = $xpath->query('//a[@class="tag"]');
+  if ($pageTags->length == 0) {
+    echo "Error: pageTags element not found";
+    return;
+  } else {
+    for ($i = 0; $i < $pageTags->length; $i++) {
+      $pageTags[$i]->setAttribute("href", "./articles.html?tag=$tags[$i]");
+      $pageTags[$i]->nodeValue = $tags[$i];
+    }
+  }
+
+  echo $page->saveHTML();
 }
 
 init();

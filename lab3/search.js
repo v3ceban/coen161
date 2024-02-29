@@ -80,7 +80,7 @@ function performSearch(query) {
       }
     });
 
-    if (hasTags) {
+    if (hasTags || searchedTags.length === 0) {
       article.style.display = "block";
     } else {
       article.style.display = "none";
@@ -92,7 +92,7 @@ function performSearch(query) {
 function filterArticles(event) {
   if (event.keyCode === 13) {
     const searchInput = event.target.value.toLowerCase();
-    if (!searchedTags.includes(searchInput)) {
+    if (!searchedTags.includes(searchInput) && searchInput.length > 0) {
       searchedTags.push(searchInput);
       appendTag(searchInput);
     }
@@ -101,7 +101,6 @@ function filterArticles(event) {
     updateURL();
   }
 }
-
 
 const articleTags = document.querySelectorAll("article ul.tags a.tag");
 articleTags.forEach((tag) => {
@@ -115,7 +114,6 @@ articleTags.forEach((tag) => {
     performSearch(searchedTags);
     updateURL();
   });
-})
-
+});
 
 handleInitialSearch();

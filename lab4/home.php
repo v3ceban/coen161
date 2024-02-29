@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 function init()
 {
   if (!file_exists('articles.json')) {

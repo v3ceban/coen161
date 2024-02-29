@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 $page = $_GET['page'] ?? '';
 
 if (empty($page)) {

@@ -1,5 +1,7 @@
 <?php
 
+error_reporting(0);
+
 function init()
 {
   $id = $_GET['id'];

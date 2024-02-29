@@ -9,6 +9,7 @@ article {
 
 article p {
   margin: 20px 0 30px;
+  line-height: 2em;
 }
 
 article header {

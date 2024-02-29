@@ -44,6 +44,11 @@ ul li:last-of-type {
   margin-bottom: 20px;
 }
 
+.tags li {
+  line-height: 1.5em;
+  margin-bottom: 10px;
+}
+
 h1 {
   font-size: 2em;
   margin-bottom: 20px;

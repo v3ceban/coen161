@@ -23,17 +23,18 @@ function updateURL() {
   searchedTags.forEach((tag) => {
     searchParams.append("tag", tag);
   });
-  const newUrl =
+  let newUrl =
     window.location.origin +
     window.location.pathname +
-    (searchedTags.length > 0 ? "?" + searchParams.toString() : "");
+    "?page=articles" +
+    (searchedTags.length > 0 ? "&" + searchParams.toString() : "");
   window.history.pushState(null, null, newUrl);
 }
 
 function createTag(tag) {
   let newTag = document.createElement("span");
   newTag.classList.add("tag");
-  newTag.textContent = tag.charAt(0).toUpperCase() + tag.slice(1);
+  newTag.textContent = tag;
   newTag.addEventListener("click", () => {
     const index = searchedTags.indexOf(tag);
     if (index > -1) {

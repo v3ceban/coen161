@@ -8,14 +8,20 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/article.css" />
   <script src="article.js" defer></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
 </head>
 
 <body>
   <header class="mainNav">
     <nav>
       <ul>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./articles.html">Blog</a></li>
+        <li><a href="./?page=home">Home</a></li>
+        <li><a href="./?page=articles">Blog</a></li>
       </ul>
     </nav>
   </header>
@@ -34,7 +40,7 @@
             <a href="" class="tag"></a>
           </li>
         </ul>
-        <p>Date written: 1/11/24</p>
+        <p id="date"></p>
       </header>
       <p id="content"></p>
       <footer>
@@ -44,9 +50,9 @@
         </svg>
         <nav>
           <ul>
-            <li><a href="#">Previous</a></li>
+            <li><a href="#" id="prev">Previous</a></li>
             <li><a href="#top">Top</a></li>
-            <li><a href="#">Next</a></li>
+            <li><a href="#" id="next">Next</a></li>
           </ul>
         </nav>
       </footer>

@@ -1,12 +1,15 @@
 <?php
+
 function init()
 {
   $id = $_GET['id'];
+  $name = $_GET['name'];
 
-  if (!$id) {
-    echo "Error: id parameter is missing";
+  if (!$id && !$name) { // using && returns false if id OR name missing, true if one or both missing
+    echo "Error: id or name parameter missing";
     return;
   }
+
 
   if (!file_exists('articles.json')) {
     echo "Error: articles.json does not exist";
@@ -16,12 +19,22 @@ function init()
   $articles = json_decode(file_get_contents('articles.json'));
 
   foreach ($articles as $article) {
-    if ($article->id == $id) {
-      $title = $article->title;
-      $tags = $article->tags;
-      $content = $article->content;
+    if ($id) {
+      if ($id == $article->id) {
+        $title = $article->title;
+        $tags = $article->tags;
+        $content = $article->content;
+      }
+    } else {
+      if ($name == $article->title) {
+        $title = $article->title;
+        $tags = $article->tags;
+        $content = $article->content;
+      }
     }
   }
+
+
 
   if (!$title) {
     echo "Error: article not found";

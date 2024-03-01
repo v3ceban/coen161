@@ -36,7 +36,7 @@ function init()
   $id = $article->id;
   $header = $article->title;
   $tags = $article->tags;
-  $content = implode(". ", array_slice(explode(". ", $article->content), 0, 4));
+  $content = implode(". ", array_slice(explode(". ", $article->content), 0, 2));
   $date = $article->date;
 
   $h2 = $page->createElement('h2');

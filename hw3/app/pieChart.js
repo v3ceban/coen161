@@ -53,70 +53,55 @@ function getColor() {
   }
 }
 
-function pieChart() {
+async function pieChart() {
   const svg = document.getElementById("pieChart");
   const centerX = svg.clientWidth / 2;
   const centerY = svg.clientHeight / 2;
   const radius = Math.min(centerX, centerY) - 100;
+  const data = await fetch("app/data.json").then((res) => res.json());
 
-  fetch("app/data.json")
-    .then((response) => response.json())
-    .then((data) => {
-      const total = data.reduce((acc, curr) => acc + curr.value, 0);
+  const total = data.reduce((acc, curr) => acc + curr.value, 0);
 
-      let startAngle = 0;
+  let startAngle = 0;
 
-      for (let i = 0; i < data.length; i++) {
-        let sliceAngle = (data[i].value / total) * 360;
-        let endAngle = startAngle + sliceAngle;
-        let middleAngle = (startAngle + endAngle) / 2;
-        let point = polarToCartesian(
-          centerX,
-          centerY,
-          radius + 75,
-          middleAngle,
-        );
-        let color = getColor();
+  for (let i = 0; i < data.length; i++) {
+    let sliceAngle = (data[i].value / total) * 360;
+    let endAngle = startAngle + sliceAngle;
+    let middleAngle = (startAngle + endAngle) / 2;
+    let middlePoint = polarToCartesian(
+      centerX,
+      centerY,
+      radius * 1.4,
+      middleAngle,
+    );
+    let color = getColor();
 
-        let path = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "path",
-        );
-        path.setAttribute(
-          "d",
-          describeArc(centerX, centerY, radius, startAngle, endAngle),
-        );
-        path.setAttribute("fill", color);
-        svg.appendChild(path);
+    let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute(
+      "d",
+      describeArc(centerX, centerY, radius, startAngle, endAngle),
+    );
+    path.setAttribute("fill", color);
+    svg.appendChild(path);
 
-        let text = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "text",
-        );
-        text.setAttribute("x", point.x + 10);
-        text.setAttribute("y", point.y);
-        text.setAttribute("text-anchor", "end");
-        text.textContent =
-          data[i].name + " " + ((data[i].value / total) * 100).toFixed(1) + "%";
-        svg.appendChild(text);
+    let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", middlePoint.x + 10);
+    text.setAttribute("y", middlePoint.y);
+    text.setAttribute("text-anchor", "end");
+    text.textContent =
+      data[i].name + " " + ((data[i].value / total) * 100).toFixed(1) + "%";
+    svg.appendChild(text);
 
-        let square = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "rect",
-        );
-        square.setAttribute("width", 15);
-        square.setAttribute("height", 15);
-        square.setAttribute("fill", color);
-        square.setAttribute("x", point.x + 15);
-        square.setAttribute("y", point.y - 13);
-        svg.appendChild(square);
+    let square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    square.setAttribute("width", 15);
+    square.setAttribute("height", 15);
+    square.setAttribute("fill", color);
+    square.setAttribute("x", middlePoint.x + 15);
+    square.setAttribute("y", middlePoint.y - 13);
+    svg.appendChild(square);
 
-        startAngle = endAngle;
-      }
-    })
-    .catch((error) => {
-      console.error("Error fetching data:", error);
-    });
+    startAngle = endAngle;
+  }
 }
 
 pieChart();

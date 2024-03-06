@@ -70,10 +70,18 @@ function pieChart() {
         let sliceAngle = (data[i].value / total) * 360;
         let endAngle = startAngle + sliceAngle;
         let middleAngle = (startAngle + endAngle) / 2;
-        let point = polarToCartesian(centerX, centerY, radius + 50, middleAngle);
+        let point = polarToCartesian(
+          centerX,
+          centerY,
+          radius + 75,
+          middleAngle,
+        );
         let color = getColor();
 
-        let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        let path = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "path",
+        );
         path.setAttribute(
           "d",
           describeArc(centerX, centerY, radius, startAngle, endAngle),
@@ -81,7 +89,10 @@ function pieChart() {
         path.setAttribute("fill", color);
         svg.appendChild(path);
 
-        let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        let text = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "text",
+        );
         text.setAttribute("x", point.x + 10);
         text.setAttribute("y", point.y);
         text.setAttribute("text-anchor", "end");
@@ -89,7 +100,10 @@ function pieChart() {
           data[i].name + " " + ((data[i].value / total) * 100).toFixed(1) + "%";
         svg.appendChild(text);
 
-        let square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        let square = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "rect",
+        );
         square.setAttribute("width", 15);
         square.setAttribute("height", 15);
         square.setAttribute("fill", color);

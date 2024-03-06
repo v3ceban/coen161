@@ -1,5 +1,8 @@
 <?php
-$html_file = 'app/index.html';
+
+error_reporting(0);
+
+$html_file = './app/index.html';
 
 if (!file_exists($html_file)) {
   echo 'Error: File not found';

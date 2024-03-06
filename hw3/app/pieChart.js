@@ -58,7 +58,7 @@ async function pieChart() {
   const centerX = svg.clientWidth / 2;
   const centerY = svg.clientHeight / 2;
   const radius = Math.min(centerX, centerY) - 100;
-  const data = await fetch("app/data.json").then((res) => res.json());
+  const data = await fetch("./app/data.json").then((res) => res.json());
 
   const total = data.reduce((acc, curr) => acc + curr.value, 0);
 

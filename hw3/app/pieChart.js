@@ -76,6 +76,32 @@ async function pieChart() {
     );
     let color = getColor();
 
+    if (data.length === 1) {
+      let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      circle.setAttribute("cx", centerX);
+      circle.setAttribute("cy", centerY);
+      circle.setAttribute("r", radius);
+      circle.setAttribute("fill", color);
+      svg.appendChild(circle);
+
+      let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+      text.setAttribute("x", middlePoint.x + 10);
+      text.setAttribute("y", middlePoint.y);
+      text.setAttribute("text-anchor", "end");
+      text.textContent =
+        data[i].name + " " + ((data[i].value / total) * 100).toFixed(1) + "%";
+      svg.appendChild(text);
+
+      let square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+      square.setAttribute("width", 15);
+      square.setAttribute("height", 15);
+      square.setAttribute("fill", color);
+      square.setAttribute("x", middlePoint.x + 15);
+      square.setAttribute("y", middlePoint.y - 13);
+      svg.appendChild(square);
+      break;
+    }
+
     let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute(
       "d",

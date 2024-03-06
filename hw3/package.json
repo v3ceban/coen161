@@ -1,0 +1,6 @@
+{
+  "name": "hw3",
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  }
+}

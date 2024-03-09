@@ -25,6 +25,7 @@ fwrite($html_file, '<!doctype html>
   <section>
     <svg id="pieChart"></svg>
   </section>
+  <div id="hover"></div>
 </body> 
 
 </html>');

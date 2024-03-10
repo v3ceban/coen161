@@ -1,0 +1,65 @@
+:root {
+  --grey: #eee;
+  --dark-grey: #ccc;
+  --darkest-grey: #777;
+  --black: #333;
+}
+
+body {
+  color: var(--black);
+}
+
+::selection {
+  background: violet;
+}
+
+.tag {
+  background: var(--grey);
+  color: var(--darkest-grey);
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+ul li:last-of-type {
+  margin-right: 0;
+}
+
+.mainNav {
+  background: violet;
+  padding: 10px 250px;
+  text-align: right;
+}
+
+.mainNav a {
+  color: var(--black);
+}
+
+.tags {
+  margin-bottom: 20px;
+}
+
+.tags li {
+  line-height: 1.5em;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  color: blueviolet;
+}

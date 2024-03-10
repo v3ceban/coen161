@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab 4: Latest Article</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/article.css" />
+  <script src="article.js" defer></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
+</head>
+
+<body>
+  <header class="mainNav">
+    <nav>
+      <ul>
+        <li><a href="./?page=home">Home</a></li>
+        <li><a href="./?page=articles">Blog</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <header>
+        <h1 id="top"></h1>
+        <ul class="tags">
+          <li>
+            <a href="" class="tag"></a>
+          </li>
+          <li>
+            <a href="" class="tag"></a>
+          </li>
+          <li>
+            <a href="" class="tag"></a>
+          </li>
+        </ul>
+        <p id="date"></p>
+      </header>
+      <p id="content"></p>
+      <footer>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" height="25" width="25" id="downloadButton">
+          <path
+            d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V274.7l-73.4-73.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0l128-128c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L288 274.7V32zM64 352c-35.3 0-64 28.7-64 64v32c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V416c0-35.3-28.7-64-64-64H346.5l-45.3 45.3c-25 25-65.5 25-90.5 0L165.5 352H64zm368 56a24 24 0 1 1 0 48 24 24 0 1 1 0-48z" />
+        </svg>
+        <nav>
+          <ul>
+            <li><a href="#" id="prev">Previous</a></li>
+            <li><a href="#top">Top</a></li>
+            <li><a href="#" id="next">Next</a></li>
+          </ul>
+        </nav>
+      </footer>
+    </article>
+  </main>
+</body>
+
+</html>

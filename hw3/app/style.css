@@ -1,6 +1,38 @@
+h1 {
+  text-align: center;
+}
+
 svg {
   width: 100vw;
   height: 80svh;
   margin: 0 auto;
   display: block;
+}
+
+path,
+rect {
+  transition: filter 0.2s ease-in;
+}
+
+svg path:hover {
+  filter: saturate(200%);
+}
+
+svg path:hover+text {
+  font-weight: bold;
+}
+
+svg path:hover+text+rect {
+  filter: saturate(200%);
+}
+
+div {
+  position: absolute;
+  display: none;
+  width: fit-content;
+  height: fit-content;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  z-index: 1;
 }

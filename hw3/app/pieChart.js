@@ -1,8 +1,8 @@
 function describeArc(x, y, radius, startAngle, endAngle) {
-  var start = polarToCartesian(x, y, radius, endAngle);
-  var end = polarToCartesian(x, y, radius, startAngle);
-  var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
-  var d = [
+  let start = polarToCartesian(x, y, radius, endAngle);
+  let end = polarToCartesian(x, y, radius, startAngle);
+  let largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+  let d = [
     "M",
     start.x,
     start.y,
@@ -23,7 +23,7 @@ function describeArc(x, y, radius, startAngle, endAngle) {
 }
 
 function polarToCartesian(centerX, centerY, radius, angleInDegrees) {
-  var angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
+  let angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
   return {
     x: centerX + radius * Math.cos(angleInRadians),
     y: centerY + radius * Math.sin(angleInRadians),
@@ -55,6 +55,7 @@ function getColor() {
 
 async function pieChart() {
   const svg = document.getElementById("pieChart");
+  const menu = document.querySelector("div");
   const centerX = svg.clientWidth / 2;
   const centerY = svg.clientHeight / 2;
   const radius = Math.min(centerX, centerY) - 100;
@@ -71,13 +72,16 @@ async function pieChart() {
     let middlePoint = polarToCartesian(
       centerX,
       centerY,
-      radius * 1.4,
+      radius * 1.2,
       middleAngle,
     );
     let color = getColor();
 
     if (data.length === 1) {
-      let circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      let circle = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "circle",
+      );
       circle.setAttribute("cx", centerX);
       circle.setAttribute("cy", centerY);
       circle.setAttribute("r", radius);
@@ -85,20 +89,13 @@ async function pieChart() {
       svg.appendChild(circle);
 
       let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-      text.setAttribute("x", middlePoint.x + 10);
+      text.setAttribute("x", middlePoint.x);
       text.setAttribute("y", middlePoint.y);
-      text.setAttribute("text-anchor", "end");
+      text.setAttribute("text-anchor", "middle");
       text.textContent =
         data[i].name + " " + ((data[i].value / total) * 100).toFixed(1) + "%";
       svg.appendChild(text);
 
-      let square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-      square.setAttribute("width", 15);
-      square.setAttribute("height", 15);
-      square.setAttribute("fill", color);
-      square.setAttribute("x", middlePoint.x + 15);
-      square.setAttribute("y", middlePoint.y - 13);
-      svg.appendChild(square);
       break;
     }
 
@@ -108,23 +105,30 @@ async function pieChart() {
       describeArc(centerX, centerY, radius, startAngle, endAngle),
     );
     path.setAttribute("fill", color);
+    path.addEventListener("mouseover", () => {
+      menu.textContent =
+        data[i].name + " " + ((data[i].value / total) * 100).toFixed(1) + "%";
+      menu.style.display = "block";
+    });
+    path.addEventListener("mousemove", (e) => {
+      const rect = svg.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      menu.style.left = x + 10 + "px";
+      menu.style.top = y + 40 + "px";
+    });
+    path.addEventListener("mouseout", () => {
+      menu.style.display = "none";
+    });
     svg.appendChild(path);
 
     let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    text.setAttribute("x", middlePoint.x + 10);
+    text.setAttribute("x", middlePoint.x);
     text.setAttribute("y", middlePoint.y);
-    text.setAttribute("text-anchor", "end");
-    text.textContent =
-      data[i].name + " " + ((data[i].value / total) * 100).toFixed(1) + "%";
+    text.setAttribute("text-anchor", "middle");
+    text.textContent = data[i].name;
     svg.appendChild(text);
-
-    let square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-    square.setAttribute("width", 15);
-    square.setAttribute("height", 15);
-    square.setAttribute("fill", color);
-    square.setAttribute("x", middlePoint.x + 15);
-    square.setAttribute("y", middlePoint.y - 13);
-    svg.appendChild(square);
 
     startAngle = endAngle;
   }

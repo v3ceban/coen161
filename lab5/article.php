@@ -12,36 +12,54 @@ function init()
     return;
   }
 
-  if (!file_exists('articles.json')) {
-    echo "Error: articles.json does not exist";
+
+  if (!file_exists('coen161_lab5_articles.db')) {
+    echo "Error: database does not exist";
     return;
   }
 
-  $articles = json_decode(file_get_contents('articles.json'));
+  $databaseFile = "coen161_lab5_articles.db";
 
-  if (!is_array($articles)) {
-    echo "Error: articles.json of is not an array";
-    return;
+  try {
+    $db = new PDO("sqlite:" . $databaseFile);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $query = $db->prepare("SELECT * FROM MyPosts");
+    $query->execute();
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+  } catch (Exception $e) {
+    echo "Database connection failed: " . $e->getMessage();
   }
+
+  // if (!file_exists('articles.json')) {
+  //   echo "Error: articles.json does not exist";
+  //   return;
+  // }
+  //
+  // $articles = json_decode(file_get_contents('articles.json'));
+  //
+  // if (!is_array($articles)) {
+  //   echo "Error: articles.json of is not an array";
+  //   return;
+  // }
 
   $title = "";
   $content = "";
   $tags = "";
 
-  foreach ($articles as $article) {
+  foreach ($result as $article) {
     if (isset($id)) {
-      if ($id == $article->id) {
-        $title = $article->title;
-        $tags = $article->tags;
-        $content = $article->content;
-        $date = $article->date;
+      if ($id == $article['id']) {
+        $title = $article['title'];
+        $tags = explode(', ', $article['tags']);
+        $content = $article['content'];
+        $date = $article['date'];
       }
     } else {
-      if ($name == $article->title) {
-        $title = $article->title;
-        $tags = $article->tags;
-        $content = $article->content;
-        $date = $article->date;
+      if ($name == $article['title']) {
+        $title = $article['title'];
+        $tags = explode(', ', $article['tags']);
+        $content = $article['content'];
+        $date = $article['date'];
       }
     }
   }
@@ -105,8 +123,8 @@ function init()
   }
 
   $nextId = null;
-  if ($id >= sizeof($articles) - 1) {
-    $nextId = 0;
+  if ($id >= sizeof($result)) {
+    $nextId = 1;
   } else {
     $nextId = $id + 1;
   }
@@ -120,8 +138,8 @@ function init()
   }
 
   $prevId = null;
-  if ($id <= 0) {
-    $prevId = sizeof($articles) - 1;
+  if ($id <= 1) {
+    $prevId = sizeof($result);
   } else {
     $prevId = $id - 1;
   }

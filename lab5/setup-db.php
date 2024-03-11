@@ -44,8 +44,8 @@ function executeSetup()
       // echo ("Inserted article: " . $title . "\n");
     }
 
-    $query_select = $db->prepare("SELECT * FROM MyPosts");
-    $query_select->execute();
+    // $query_select = $db->prepare("SELECT * FROM MyPosts");
+    // $query_select->execute();
     // $result = $query_select->fetchAll(PDO::FETCH_ASSOC);
     // var_dump($result);
     // echo "Total articles: " . count($result);

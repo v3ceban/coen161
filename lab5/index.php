@@ -2,6 +2,9 @@
 
 error_reporting(0);
 
+require_once 'setup-db.php';
+executeSetup();
+
 $page = $_GET['page'] ?? '';
 
 if (empty($page)) {

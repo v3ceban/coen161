@@ -12,7 +12,6 @@ function init()
     return;
   }
 
-
   if (!file_exists('coen161_lab5_articles.db')) {
     echo "Error: database does not exist";
     return;

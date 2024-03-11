@@ -5,16 +5,33 @@ error_reporting(0);
 function init()
 {
 
-  if (!file_exists('articles.json')) {
-    echo "Error: articles.json does not exist";
+  // if (!file_exists('articles.json')) {
+  //   echo "Error: articles.json does not exist";
+  //   return;
+  // }
+  //
+  // $articles = json_decode(file_get_contents('articles.json'));
+  //
+  // if (!file_exists("articles.html")) {
+  //   echo "Error: articles page does not exist";
+  //   return;
+  // }
+
+  if (!file_exists('coen161_lab5_articles.db')) {
+    echo "Error: database does not exist";
     return;
   }
 
-  $articles = json_decode(file_get_contents('articles.json'));
+  $databaseFile = "coen161_lab5_articles.db";
 
-  if (!file_exists("articles.html")) {
-    echo "Error: articles page does not exist";
-    return;
+  try {
+    $db = new PDO("sqlite:" . $databaseFile);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $query = $db->prepare("SELECT * FROM MyPosts");
+    $query->execute();
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+  } catch (Exception $e) {
+    echo "Database connection failed: " . $e->getMessage();
   }
 
   $page = new DOMDocument();
@@ -26,11 +43,11 @@ function init()
     return;
   }
 
-  foreach ($articles as $article) {
-    $id = $article->id;
-    $header = $article->title;
-    $tags = $article->tags;
-    $content = implode(". ", array_slice(explode(". ", $article->content), 0, 2));
+  foreach ($result as $article) {
+    $id = $article['id'];
+    $header = $article['title'];
+    $tags = explode(', ', $article['tags']);
+    $content = implode(". ", array_slice(explode(". ", $article['content']), 0, 2));
 
     $h2 = $page->createElement('h2');
     $h2link = $page->createElement('a');

@@ -2,6 +2,9 @@
 
 error_reporting(0);
 
+include 'setup-db.php';
+executeSetup();
+
 function init()
 {
   if (!file_exists('articles.json')) {

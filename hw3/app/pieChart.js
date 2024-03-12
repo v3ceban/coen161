@@ -72,7 +72,7 @@ async function pieChart() {
     let middlePoint = polarToCartesian(
       centerX,
       centerY,
-      radius * 1.2,
+      radius * 1.3,
       middleAngle,
     );
     let color = getColor();
@@ -95,6 +95,17 @@ async function pieChart() {
       text.textContent =
         data[i].name + " " + ((data[i].value / total) * 100).toFixed(1) + "%";
       svg.appendChild(text);
+
+      let square = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "rect",
+      );
+      square.setAttribute("width", 15);
+      square.setAttribute("height", 15);
+      square.setAttribute("fill", color);
+      square.setAttribute("x", middlePoint.x + 15);
+      square.setAttribute("y", middlePoint.y - 13);
+      svg.appendChild(square);
 
       break;
     }
@@ -124,11 +135,19 @@ async function pieChart() {
     svg.appendChild(path);
 
     let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-    text.setAttribute("x", middlePoint.x);
+    text.setAttribute("x", middlePoint.x + 10);
     text.setAttribute("y", middlePoint.y);
-    text.setAttribute("text-anchor", "middle");
+    text.setAttribute("text-anchor", "end");
     text.textContent = data[i].name;
     svg.appendChild(text);
+
+    let square = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    square.setAttribute("width", 15);
+    square.setAttribute("height", 15);
+    square.setAttribute("fill", color);
+    square.setAttribute("x", middlePoint.x + 15);
+    square.setAttribute("y", middlePoint.y - 13);
+    svg.appendChild(square);
 
     startAngle = endAngle;
   }

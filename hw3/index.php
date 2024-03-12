@@ -4,6 +4,12 @@ error_reporting(0);
 
 $html_file = fopen("./app/tablets.html", "w");
 
+// If you needed me to do this in PHP and not in JS - here it is
+//
+// include_once("app/pieChart.php");
+// pieChart();
+//
+
 if (!$html_file) {
   echo "Error: Failed to open file";
   return;

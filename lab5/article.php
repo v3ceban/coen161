@@ -80,7 +80,7 @@ function init()
     echo "Error: titleTag element not found";
     return;
   } else {
-    $titleTag->nodeValue = "Lab 4: $title";
+    $titleTag->nodeValue = "Lab 5: $title";
   }
 
   $pageTitle = $page->getElementById("top");

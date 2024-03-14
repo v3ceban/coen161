@@ -21,10 +21,11 @@ function init()
 
   try {
     $db = new PDO("sqlite:" . $databaseFile);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $query = $db->prepare("SELECT * FROM MyPosts");
+    $query = $db->prepare("SELECT * FROM MyPosts WHERE id = :id OR title = :name");
+    $query->bindParam(':id', $id);
+    $query->bindParam(':name', $name);
     $query->execute();
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    $result = $query->fetch(PDO::FETCH_ASSOC);
   } catch (Exception $e) {
     echo "Database connection failed: " . $e->getMessage();
   }
@@ -45,21 +46,19 @@ function init()
   $content = "";
   $tags = "";
 
-  foreach ($result as $article) {
-    if (isset($id)) {
-      if ($id == $article['id']) {
-        $title = $article['title'];
-        $tags = explode(', ', $article['tags']);
-        $content = $article['content'];
-        $date = $article['date'];
-      }
-    } else {
-      if ($name == $article['title']) {
-        $title = $article['title'];
-        $tags = explode(', ', $article['tags']);
-        $content = $article['content'];
-        $date = $article['date'];
-      }
+  if (isset($id)) {
+    if ($id == $result['id']) {
+      $title = $result['title'];
+      $tags = explode(', ', $result['tags']);
+      $content = $result['content'];
+      $date = $result['date'];
+    }
+  } else {
+    if ($name == $result['title']) {
+      $title = $result['title'];
+      $tags = explode(', ', $result['tags']);
+      $content = $result['content'];
+      $date = $result['date'];
     }
   }
 

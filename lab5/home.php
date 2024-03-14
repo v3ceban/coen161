@@ -21,10 +21,10 @@ function init()
   try {
     $db = new PDO("sqlite:" . $databaseFile);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $query = $db->prepare("SELECT * FROM MyPosts");
+    $query = $db->prepare("SELECT * FROM MyPosts ORDER BY id DESC LIMIT 1");
     $query->execute();
-    $result = $query->fetchAll(PDO::FETCH_ASSOC);
-  } catch (Exception $e) {
+    $result = $query->fetch(PDO::FETCH_ASSOC);
+  } catch (PDOException $e) {
     echo "Database connection failed: " . $e->getMessage();
   }
 
@@ -43,23 +43,17 @@ function init()
     return;
   }
 
-  $article = null;
-  foreach ($result as $row) {
-    if ($row['id'] == sizeof($result)) {
-      $article = $row;
-    }
-  }
-
-  if (!$article) {
-    echo "Error: no articles in articles.json";
+  if (!$result) {
+    echo "Error: no articles in database";
     return;
   }
 
-  $id = $article['id'];
-  $header = $article['title'];
-  $tags = explode(', ', $article['tags']);
-  $content = implode(". ", array_slice(explode(". ", $article['content']), 0, 2));
-  $date = $article['date'];
+  $id = $result['id'];
+  $header = $result['title'];
+  $tags = explode(', ', $result['tags']);
+  $content = implode(". ", array_slice(explode(". ", $result['content']), 0, 2));
+  $date = $result['date'];
+
 
   $h2 = $page->createElement('h2');
   $h2link = $page->createElement('a');

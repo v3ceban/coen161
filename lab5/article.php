@@ -21,9 +21,9 @@ function init()
 
   try {
     $db = new PDO("sqlite:" . $databaseFile);
-    $query = $db->prepare("SELECT * FROM MyPosts WHERE id = :id OR title = :name");
+    $query = $db->prepare("SELECT * FROM MyPosts WHERE id = :id");
     $query->bindParam(':id', $id);
-    $query->bindParam(':name', $name);
+    // $query->bindParam(':name', $name);
     $query->execute();
     $result = $query->fetch(PDO::FETCH_ASSOC);
   } catch (Exception $e) {
